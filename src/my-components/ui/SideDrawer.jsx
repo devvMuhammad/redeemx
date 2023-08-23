@@ -8,7 +8,13 @@ function SideDrawer({
   setShowSidebar,
   children,
   riseFromWhere = "left",
+  visibleAll = false,
+  // purpose = "sidebar",
 }) {
+  // const widths = {
+  //   sidebar: "w-[60%] md:w-[40%]",
+  //   cart: "w-[40%]"
+  // }
   const sidebarRef = useRef();
   useEffect(() => {
     const sidebarElement = sidebarRef.current;
@@ -35,15 +41,17 @@ function SideDrawer({
       {/*  -------------- Sidebar ------------------- */}
       <div
         ref={sidebarRef}
-        className={`lg:hidden fixed top-0 ${
+        className={`${!visibleAll && "lg:hidden"} fixed top-0 ${
           riseFromWhere === "left" ? "left-0" : "right-0"
-        } h-full bg-black z-50 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in ${
-          showSidebar ? "w-[60%]" : "w-0"
+        } h-full bg-black z-50 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-out ${
+          showSidebar ? "w-[70%] md:w-[40%] lg:w-[30%]" : "w-0"
         }`}
       >
         {/* -------------- CLOSING BUTTON ------------ */}
         <span
-          className="absolute top-3 right-4 cursor-pointer"
+          className={`absolute top-3 right-4 ${
+            riseFromWhere === "left" ? "right-4" : "left-4"
+          } cursor-pointer`}
           onClick={() => setShowSidebar(false)}
         >
           <X />
