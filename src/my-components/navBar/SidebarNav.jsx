@@ -38,9 +38,7 @@ function SidebarNav({ showSidebar, setShowSidebar }) {
       <div
         ref={sidebarRef}
         className={`lg:hidden fixed top-0 left-0 h-full bg-black z-50 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in ${
-          showSidebar
-            ? "w-[60%] sm:w-1/3 border-r-[1px] border-solid border-white"
-            : "w-0"
+          showSidebar ? "w-[60%]" : "w-0"
         }`}
       >
         {/* ----------- SIDEBAR CONTENT --------------- */}
