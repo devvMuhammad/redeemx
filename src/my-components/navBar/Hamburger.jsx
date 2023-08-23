@@ -1,13 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import SidebarNav from "./SidebarNav";
+import SideDrawer from "./SideDrawer";
+import SidebarNavContent from "./SidebarNavContent";
 
 //hamburger will take care of the sidebar navigation
 function Hamburger() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
-      <SidebarNav showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+      <SideDrawer showSidebar={showSidebar} setShowSidebar={setShowSidebar}>
+        <SidebarNavContent showSidebar={showSidebar} />
+      </SideDrawer>
       <button
         onClick={() => setShowSidebar(true)}
         className="inline-flex items-center justify-center rounded-md font-medium transition-colors lg:hidden"
