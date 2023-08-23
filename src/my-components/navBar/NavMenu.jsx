@@ -7,25 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-
-const navBarMenu = [
-  {
-    title: "Laptops",
-    menu: ["Dell", "HP", "Lenovo", "Apple", "Asus", "Acer"],
-  },
-  {
-    title: "Mobiles",
-    menu: ["Samsung", "Apple", "Xiaomi", "OnePlus", "Google", "Huawei"],
-  },
-  {
-    title: "Gift Cards",
-    menu: ["Steam", "Xbox", "PSN", "Itunes", "Google Play"],
-  },
-  {
-    title: "Accessories",
-    menu: ["Headphones", "Mouse", "Keyboard", "Graphic Cards", "Monitors"],
-  },
-];
+import navBarMenu from "./categories";
 
 export default function NavMenu() {
   return (
@@ -44,7 +26,7 @@ export default function NavMenu() {
               <NavigationMenuContent className="bg-black text-white font-thin">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] ">
                   {nav.menu.map((link) => (
-                    <p>
+                    <span>
                       <Link
                         key={link}
                         href={`/${link.toLowerCase().split(" ").join("")}`}
@@ -52,7 +34,7 @@ export default function NavMenu() {
                       >
                         {link}
                       </Link>
-                    </p>
+                    </span>
                   ))}
                 </ul>
               </NavigationMenuContent>
