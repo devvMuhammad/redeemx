@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import SideDrawer from "./SideDrawer";
 import Link from "next/link";
+import Cart from "./Cart";
 
 function CartIcon() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -13,26 +14,7 @@ function CartIcon() {
         riseFromWhere="right"
         visibleAll={true}
       >
-        {/* className={`mt-10 transition-opacity duration-300 ease-in ${
-          showSidebar ? "opacity-100" : "opacity-0"
-        }`} */}
-        <div
-          className={`flex flex-col justify-center p-4 mt-4 ${
-            showSidebar
-              ? "transition-opacity duration-200 ease-linear opacity-100"
-              : "opacity-0"
-          }`}
-        >
-          <p className="font-bold text-xl text-left">
-            Cart
-            <Link
-              href=""
-              className="inline-block ml-2 text-sm font-normal hover:underline hover:translate-y-[-1px]"
-            >
-              ( View full here )
-            </Link>
-          </p>
-        </div>
+        <Cart showSidebar={showSidebar} />
       </SideDrawer>
       <button
         onClick={() => setShowSidebar(true)}
