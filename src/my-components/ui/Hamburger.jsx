@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import SideDrawer from "./SideDrawer";
 import SidebarNavContent from "../header/nav/SidebarNavContent";
-import { createPortal } from "react-dom";
 
 //hamburger will take care of the sidebar navigation
 function Hamburger() {
@@ -10,10 +9,7 @@ function Hamburger() {
   return (
     <>
       <SideDrawer showSidebar={showSidebar} setShowSidebar={setShowSidebar}>
-        {/* {createPortal( */}
         <SidebarNavContent showSidebar={showSidebar} />
-        {/* document.body */}
-        {/* )} */}
       </SideDrawer>
       <button
         onClick={() => setShowSidebar(true)}

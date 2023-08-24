@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import navBarMenu from "./categories";
+import Portal from "@/my-components/ui/Portal";
 
 export default function NavMenu() {
   return (
@@ -22,8 +23,7 @@ export default function NavMenu() {
               <NavigationMenuTrigger className="bg-transparent text-md">
                 {nav.title}
               </NavigationMenuTrigger>
-
-              <NavigationMenuContent className="bg-black text-white font-thin">
+              <NavigationMenuContent className="z-10 font-thin">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] ">
                   {nav.menu.map((link, index) => (
                     <span key={`${index}-${link}`}>
