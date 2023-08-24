@@ -2,6 +2,14 @@ import Link from "next/link";
 
 export default function Cart({ showSidebar }) {
   return (
+    <Container showSidebar={showSidebar}>
+      <CartHeader />
+    </Container>
+  );
+}
+
+function Container({ children, showSidebar }) {
+  return (
     <div
       className={`flex flex-col justify-center p-4 mt-4 text-white ${
         showSidebar
@@ -9,6 +17,14 @@ export default function Cart({ showSidebar }) {
           : "opacity-0"
       }`}
     >
+      {children}
+    </div>
+  );
+}
+
+function CartHeader() {
+  return (
+    <>
       <p className="font-bold text-xl text-left">
         Cart
         <Link
@@ -19,6 +35,6 @@ export default function Cart({ showSidebar }) {
         </Link>
       </p>
       <hr className="mt-4" />
-    </div>
+    </>
   );
 }
