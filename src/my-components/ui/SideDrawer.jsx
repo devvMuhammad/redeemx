@@ -32,32 +32,34 @@ function SideDrawer({
   return (
     <>
       {/* Darkish overlay */}
-      {showSidebar && (
-        <div
-          className="lg:hidden fixed top-0 left-0 w-full h-full bg-black opacity-80 z-40"
-          onClick={() => setShowSidebar(false)}
-        ></div>
-      )}
 
       {/*  -------------- Sidebar ------------------- */}
       {createPortal(
-        <div
-          ref={sidebarRef}
-          className={`${!visibleAll && "lg:hidden"} fixed top-0 ${
-            riseFromWhere === "left" ? "left-0" : "right-0"
-          } h-full bg-black text-white z-50 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-out ${
-            showSidebar ? "w-[70%] md:w-[40%] lg:w-[30%]" : "w-0"
-          }`}
-        >
-          {/* -------------- CLOSING BUTTON ------------ */}
-          <span
-            className="absolute top-3 right-4 cursor-pointer"
-            onClick={() => setShowSidebar(false)}
+        <div>
+          {showSidebar && (
+            <div
+              className="lg:hidden fixed top-0 left-0 backdrop-blur-sm  w-full h-full bg-black/50  z-40"
+              onClick={() => setShowSidebar(false)}
+            ></div>
+          )}
+          <div
+            ref={sidebarRef}
+            className={`${!visibleAll && "lg:hidden"} fixed top-0 ${
+              riseFromWhere === "left" ? "left-0" : "right-0"
+            } h-full bg-black text-white z-50 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-out ${
+              showSidebar ? "w-[70%] md:w-[40%] lg:w-[30%]" : "w-0"
+            }`}
           >
-            <X />
-          </span>
-          {/* ----------- SIDEBAR CONTENT --------------- */}
-          {children}
+            {/* -------------- CLOSING BUTTON ------------ */}
+            <span
+              className="absolute top-3 right-4 cursor-pointer"
+              onClick={() => setShowSidebar(false)}
+            >
+              <X />
+            </span>
+            {/* ----------- SIDEBAR CONTENT --------------- */}
+            {children}
+          </div>
         </div>,
         document.body
       )}
