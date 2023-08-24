@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import SideDrawer from "./SideDrawer";
-import SidebarNavContent from "../header/navBar/SidebarNavContent";
+import SidebarNavContent from "../header/nav/SidebarNavContent";
 
 //hamburger will take care of the sidebar navigation
 function Hamburger() {

@@ -25,8 +25,8 @@ export default function NavMenu() {
 
               <NavigationMenuContent className="bg-black text-white font-thin">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] ">
-                  {nav.menu.map((link) => (
-                    <span>
+                  {nav.menu.map((link, index) => (
+                    <span key={`${index}-${link}`}>
                       <Link
                         key={link}
                         href={`/${link.toLowerCase().split(" ").join("")}`}
