@@ -11,7 +11,7 @@ import navBarMenuArray from "./categories";
 function SidebarNavContent({ showSidebar }) {
   return (
     <div className="flex flex-col justify-center p-4 mt-10">
-      <p className="font-bold text-xl text-center border-b-2 border-solid border-white w-full pb-2">
+      <p className="font-bold text-xl sm:text-2xl text-center border-b-2 border-solid border-white w-full pb-2">
         Categories
       </p>
       <div
@@ -28,7 +28,7 @@ function SidebarNavContent({ showSidebar }) {
                 {item.title}
               </AccordionTrigger>
               <AccordionContent>
-                <ul className="text-left text-xl flex flex-col gap-2  ">
+                <ul className="text-left text-xl flex flex-col gap-2 ml-2">
                   {item.menu.map((menuItem) => (
                     <Link
                       className="hover:underline"
