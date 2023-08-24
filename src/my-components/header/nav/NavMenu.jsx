@@ -17,7 +17,7 @@ export default function NavMenu() {
           <>
             <NavigationMenuItem
               key={nav.title}
-              className="transition-all duration-200 ease-in "
+              className="transition-all duration-200 ease-in mx-2"
             >
               <NavigationMenuTrigger className="bg-transparent text-md">
                 {nav.title}

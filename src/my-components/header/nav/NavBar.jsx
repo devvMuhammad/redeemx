@@ -5,7 +5,7 @@ import CartIcon from "../../ui/CartIcon";
 
 function NavBar() {
   return (
-    <nav className="h-16 p-6 lg:p-10 flex justify-between items-center bg-black text-white opacity-95">
+    <nav className="h-16 p-6 lg:p-10 flex justify-between items-center bg-black text-white opacity-90">
       <Hamburger />
       <div className="flex items-center gap-12">
         <h1 className="text-3xl font-extrabold">RedeemX</h1>
