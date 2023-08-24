@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import SideDrawer from "./SideDrawer";
 import SidebarNavContent from "../header/nav/SidebarNavContent";
+import Link from "next/link";
 
 //hamburger will take care of the sidebar navigation
 function Hamburger() {
@@ -26,7 +27,7 @@ function Hamburger() {
           strokeWidth="2"
           strokeLineCap="round"
           strokeLineJoin="round"
-          class="h-6 w-6"
+          className="h-6 w-6"
         >
           <line x1="4" x2="20" y1="12" y2="12"></line>
           <line x1="4" x2="20" y1="6" y2="6"></line>

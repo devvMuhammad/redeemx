@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Cart({ showSidebar }) {
   <div
-    className={`flex flex-col justify-center p-4 mt-4 ${
+    className={`flex flex-col justify-center p-4 mt-4 text-white ${
       showSidebar
         ? "transition-opacity duration-200 ease-linear opacity-100"
         : "opacity-0"
