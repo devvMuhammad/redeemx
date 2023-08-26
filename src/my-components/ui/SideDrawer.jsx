@@ -10,6 +10,7 @@ function SideDrawer({
   children,
   riseFromWhere = "left",
   visibleAll = false,
+  purpose = "sidebar",
 }) {
   const sidebarRef = useRef();
   useEffect(() => {
@@ -24,12 +25,12 @@ function SideDrawer({
       document.removeEventListener("click", closeSidebarOnOutsideClick);
     };
   }, [showSidebar]);
+  const widths = {
+    sidebar: "w-[250px] md:w-[400px]",
+    cart: "w-full sm:w-[400px]",
+  };
   return (
     <>
-      {/* Darkish overlay */}
-
-      {/*  -------------- Sidebar ------------------- */}
-
       <Portal>
         {showSidebar && (
           <div
@@ -44,7 +45,7 @@ function SideDrawer({
           className={`${!visibleAll && "lg:hidden"} fixed top-0 ${
             riseFromWhere === "left" ? "left-0" : "right-0"
           } h-full bg-black text-white z-50 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-out ${
-            showSidebar ? "w-[75%] sm:w-[55%] md:w-[40%] lg:w-[30%]" : "w-0"
+            showSidebar ? widths[purpose] : "w-0"
           }`}
         >
           {/* -------------- CLOSING BUTTON ------------ */}

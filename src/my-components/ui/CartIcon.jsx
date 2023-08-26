@@ -13,6 +13,7 @@ function CartIcon() {
         setShowSidebar={setShowSidebar}
         riseFromWhere="right"
         visibleAll={true}
+        purpose="cart"
       >
         <Cart showSidebar={showSidebar} />
       </SideDrawer>
@@ -30,7 +31,7 @@ function CartIcon() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          class="h-4 w-4"
+          className="h-4 w-4"
           aria-hidden="true"
         >
           <circle cx="8" cy="21" r="1"></circle>
