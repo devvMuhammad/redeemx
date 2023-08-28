@@ -3,7 +3,7 @@ import HomePage from "@/my-components/header/HomePage";
 export default function Home() {
   return (
     <main>
-      <header className="flex flex-col min-h-screen">
+      <header className="flex flex-col h-screen">
         <NavBar />
         <HomePage />
       </header>

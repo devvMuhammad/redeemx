@@ -7,7 +7,7 @@ export default function Cart({ showSidebar }) {
   return (
     <Container showSidebar={showSidebar}>
       <CartHeader />
-      {/* {
+      {
         <div className="flex-1 flex flex-col gap-4 overflow-y-auto overflow-x-hidden text-sm pb-2 pr-2">
           {Array(4)
             .fill("")
@@ -15,29 +15,9 @@ export default function Cart({ showSidebar }) {
               <CartItem />
             ))}
         </div>
-      } */}
-      <div className="flex-1 flex flex-col justify-center items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLineCap="round"
-          strokeLineJoin="round"
-          className="mb-4 h-16 w-16 text-muted-foreground"
-          aria-hidden="true"
-        >
-          <circle cx="8" cy="21" r="1"></circle>
-          <circle cx="19" cy="21" r="1"></circle>
-          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-        </svg>
-        <h1 className="text-2xl font-bold">Your cart is empty</h1>
-        <p className="text-gray-400">Shop to add items to your cart</p>
-      </div>
-      {/* <CartFooter /> */}
+      }
+      {/* <EmptyCart /> */}
+      <CartFooter />
     </Container>
   );
 }
@@ -94,5 +74,31 @@ function CartFooter() {
         <span className="font-thin">$120.936</span>
       </div>
     </ul>
+  );
+}
+
+function EmptyCart() {
+  return (
+    <div className="flex-1 flex flex-col justify-center items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLineCap="round"
+        strokeLineJoin="round"
+        className="mb-4 h-16 w-16 text-muted-foreground"
+        aria-hidden="true"
+      >
+        <circle cx="8" cy="21" r="1"></circle>
+        <circle cx="19" cy="21" r="1"></circle>
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+      </svg>
+      <h1 className="text-2xl font-bold">Your cart is empty</h1>
+      <p className="text-gray-400">Shop to add items to your cart</p>
+    </div>
   );
 }
