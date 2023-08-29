@@ -11,8 +11,8 @@ export default function Cart({ showSidebar }) {
         <div className="flex-1 flex flex-col gap-4 overflow-y-auto overflow-x-hidden text-sm pb-2 pr-2">
           {Array(4)
             .fill("")
-            .map(() => (
-              <CartItem />
+            .map((_, i) => (
+              <CartItem key={i} />
             ))}
         </div>
       }
