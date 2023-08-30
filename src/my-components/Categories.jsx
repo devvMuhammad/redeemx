@@ -1,20 +1,20 @@
 import Image from "next/image";
-import laptops from "../assets/laptop.jpg";
-import phones from "../assets/phones.jpg";
-import giftCards from "../assets/gift-cards.jpg";
-import accessories from "../assets/accessories.jpg";
+import laptops from "@/assets/laptop.jpg";
+import mobiles from "@/assets/phones.jpg";
+import giftCards from "@/assets/gift-cards.jpg";
+import accessories from "@/assets/accessories.jpg";
 import Link from "next/link";
 
 export default function Categories() {
   const categories = [
     { link: "laptops", image: laptops, title: "Laptops" },
-    { link: "phones", image: phones, title: "Phones" },
+    { link: "mobiles", image: mobiles, title: "Mobiles" },
     { link: "gift-cards", image: giftCards, title: "Gift Cards" },
     { link: "accessories", image: accessories, title: "Accessories" },
   ];
   return (
     <section className=" space-y-8 px-6 lg:px-10 pb-2">
-      <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
+      <h1 className="text-center lg:text-left text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
         Browse Categories
       </h1>
       {/* ------------- PICTURES ------------- */}
