@@ -13,7 +13,7 @@ export default function Categories() {
     { link: "accessories", image: accessories, title: "Accessories" },
   ];
   return (
-    <section className=" space-y-8 px-6 lg:px-10 pb-2">
+    <section className="space-y-8 px-6 lg:px-10 pb-2">
       <h1 className="text-center lg:text-left text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
         Browse Categories
       </h1>

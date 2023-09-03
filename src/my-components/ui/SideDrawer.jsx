@@ -1,7 +1,6 @@
 "use client";
-import React, { Children, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { X } from "lucide-react";
-import { createPortal } from "react-dom";
 import Portal from "./Portal";
 
 function SideDrawer({
@@ -36,7 +35,7 @@ function SideDrawer({
           <div
             className={`${
               !visibleAll && "lg:hidden"
-            } fixed top-0 left-0 backdrop-blur-sm  w-full h-full bg-black/50  z-40`}
+            } fixed top-0 left-0 backdrop-blur-sm w-full h-full bg-black/50  z-40`}
             onClick={() => setShowSidebar(false)}
           ></div>
         )}

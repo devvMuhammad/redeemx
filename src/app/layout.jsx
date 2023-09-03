@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} p-0 m-0 overflow-y-auto`}>
+      <body className={`${poppins.className} m-0 overflow-y-auto`}>
         <NavBar />
         {children}
       </body>
