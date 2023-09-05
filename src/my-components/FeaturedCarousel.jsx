@@ -2,13 +2,8 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./carousel.css";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
+import CarouselItem from "./Carouseltem";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -17,12 +12,12 @@ const responsive = {
     slidesToSlide: 4,
   },
   desktop: {
-    breakpoint: { max: 1024, min: 800 },
-    items: 4,
-    slidesToSlide: 4,
+    breakpoint: { max: 1024, min: 700 },
+    items: 3,
+    slidesToSlide: 3,
   },
   tablet: {
-    breakpoint: { max: 800, min: 464 },
+    breakpoint: { max: 700, min: 464 },
     items: 2,
     slidesToSlide: 2,
   },
@@ -32,78 +27,72 @@ const responsive = {
     slidesToSlide: 1,
   },
 };
-
 const productData = [
   {
     id: 1,
-    name: "Colorful sneakers",
-    price: "$19.99",
-    description: "Some text about the product..",
+    name: "MacBook Pro",
+    price: "$1299.99",
   },
   {
     id: 2,
-    name: "Sport sneakers",
-    price: "$21.99",
-    description: "Some text about the product..",
+    name: "iPhone 12",
+    price: "$799.99",
   },
   {
     id: 3,
-    name: "iWatch",
-    price: "$99.99",
-    description: "Some text about the product..",
+    name: "HP Spectre x360",
+    price: "$1099.99",
   },
   {
     id: 4,
-    name: "Water Bottle",
-    price: "$14.99",
-    description: "Some text about the product..",
+    name: "Samsung Galaxy S21",
+    price: "$899.99",
   },
   {
     id: 5,
-    name: "Vans sneakers",
-    price: "$38.99",
-    description: "Some text about the product..",
+    name: "Xbox Live Gold For 12 Months",
+    price: "$80.00",
   },
   {
     id: 6,
-    name: "Coco Noir",
-    price: "$149.99",
-    description: "Some text about the product..",
+    name: "Dell XPS 13",
+    price: "$1199.99",
   },
   {
     id: 7,
-    name: "Sunglasses",
-    price: "$38.99",
-    description: "Some text about the product..",
+    name: "PlayStation Gift Card",
+    price: "$25.00",
   },
   {
     id: 8,
-    name: "Dove cream",
+    name: "Steam Gift Card",
+    price: "$20.00",
+  },
+  {
+    id: 9,
+    name: "Bose Headphones",
+    price: "$299.99",
+  },
+  {
+    id: 10,
+    name: "Dell Gaming Mouse",
     price: "$49.99",
-    description: "Some text about the product..",
+  },
+  {
+    id: 11,
+    name: "MacBook Air M1 2020 8GB RAM 256GB SSD",
+    price: "$999.99",
+  },
+  {
+    id: 12,
+    name: "iPhone SE",
+    price: "$399.99",
   },
 ];
-function Product(props) {
-  return (
-    <Card className="mx-2 bg-black text-white">
-      <CardHeader>
-        <div className="h-[200px] bg-red-500"></div>
-      </CardHeader>
-      <CardContent className="space-y-2">
-        {/* Link in future */}
-        <h2 className="text-xl font-extrabold">{props.name}</h2>
-        <p className="text-lg tracking-wider">{props.price}</p>
-      </CardContent>
-      <CardFooter>
-        <Button className="font-bold tracking-wide">Select Variant</Button>
-      </CardFooter>
-    </Card>
-  );
-}
 
-export default function Slider() {
+export default function FeaturedCarousel() {
   const product = productData.map((item) => (
-    <Product
+    <CarouselItem
       name={item.name}
       url={item.imageurl}
       price={item.price}

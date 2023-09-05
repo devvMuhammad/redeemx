@@ -1,4 +1,5 @@
 import FeaturedCarousel from "./FeaturedCarousel";
+
 export default function Featured() {
   return (
     <section className="space-y-8">
