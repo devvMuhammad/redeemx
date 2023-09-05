@@ -13,7 +13,7 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 1024 },
-    items: 5,
+    items: 4,
     slidesToSlide: 4,
   },
   desktop: {
@@ -89,13 +89,13 @@ function Product(props) {
       <CardHeader>
         <div className="h-[200px] bg-red-500"></div>
       </CardHeader>
-      <CardContent>
-        <h2>{props.name}</h2>
-        <p className="price">{props.price}</p>
-        <p>{props.description}</p>
+      <CardContent className="space-y-2">
+        {/* Link in future */}
+        <h2 className="text-xl font-extrabold">{props.name}</h2>
+        <p className="text-lg tracking-wider">{props.price}</p>
       </CardContent>
       <CardFooter>
-        <Button>Add to Cart</Button>
+        <Button className="font-bold tracking-wide">Select Variant</Button>
       </CardFooter>
     </Card>
   );

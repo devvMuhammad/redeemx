@@ -26,15 +26,15 @@ export default function CartItem() {
       <div className="col-span-2 flex justify-between items-center mt-4">
         <div className="flex gap-2">
           <div className="flex rounded-[0.25rem] border-2 border-solid border-white">
-            <span className="border-r-2 border-solid border-white px-3 text-lg font-bold hover:bg-white hover:text-black cursor-pointer">
+            <button className="border-r-2 border-solid border-white px-3 text-lg font-bold hover:bg-white hover:text-black cursor-pointer">
               -
-            </span>
+            </button>
             <span className="border-r-2 border-solid border-white px-3 text-lg font-bold ">
               100
             </span>
-            <span className=" px-3 text-lg font-bold  hover:bg-white hover:text-black cursor-pointer">
+            <button className=" px-3 text-lg font-bold  hover:bg-white hover:text-black cursor-pointer">
               +
-            </span>
+            </button>
           </div>
           <span className="border-2 border-solid border-white p-[3px] rounded-[0.25rem] hover:text-white hover:border-red-500 hover:bg-red-500 cursor-pointer">
             <Trash2Icon />

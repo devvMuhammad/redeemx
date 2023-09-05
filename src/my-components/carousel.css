@@ -27,7 +27,7 @@
   outline: 0;
   transition: all 0.5s;
   border-radius: 35px;
-  z-index: 1000;
+  z-index: 5;
   border: 0;
   background: rgba(0, 0, 0, 0.5);
   min-width: 43px;
