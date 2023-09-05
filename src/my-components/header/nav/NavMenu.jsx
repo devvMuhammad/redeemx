@@ -30,7 +30,7 @@ export default function NavMenu() {
                       <Link
                         key={link}
                         href={`/${link.toLowerCase().split(" ").join("")}`}
-                        className="hover:underline"
+                        className="hover:underline text-white"
                       >
                         {link}
                       </Link>

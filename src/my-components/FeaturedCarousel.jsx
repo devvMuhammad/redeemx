@@ -1,5 +1,4 @@
 "use client";
-import { MoveLeftIcon, MoveRightIcon, Network } from "lucide-react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./carousel.css";
