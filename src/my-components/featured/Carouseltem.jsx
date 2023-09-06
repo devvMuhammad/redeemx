@@ -5,6 +5,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 export default function CarouselItem(props) {
   return (
     <Card className="mx-2 bg-black text-white">
@@ -14,7 +15,12 @@ export default function CarouselItem(props) {
       <CardContent className="space-y-4 text-lg">
         {/* Link in future */}
         <h2 className="lg:text-xl font-extrabold h-[70px]">{props.name}</h2>
-        <p className="font-semibold text-xl tracking-wider">{props.price}</p>
+        <span className="font-semibold text-xl tracking-wider mr-6">
+          {props.price}
+        </span>
+        <span className="font-semibold text-xl tracking-wider line-through">
+          $ 110
+        </span>
       </CardContent>
       <CardFooter>
         {/* Agar variant huwa to add kardena */}

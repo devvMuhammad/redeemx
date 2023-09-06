@@ -1,6 +1,6 @@
-import HomePage from "@/my-components/header/HomePage";
+import HomePage from "@/my-components/HomePage";
 import Categories from "@/my-components/Categories";
-import Featured from "@/my-components/Featured";
+import Featured from "@/my-components/featured/Featured";
 export default function Home() {
   return (
     <>
