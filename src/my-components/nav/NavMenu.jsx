@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import navBarMenu from "./categories";
-import Portal from "@/my-components/ui/Portal";
 
 export default function NavMenu() {
   return (
@@ -29,7 +28,7 @@ export default function NavMenu() {
                     <span key={`${index}-${link}`}>
                       <Link
                         key={link}
-                        href={`/${link.toLowerCase().split(" ").join("")}`}
+                        href={`/${link.toLowerCase().split(" ").join("-")}`}
                         className="hover:underline text-white"
                       >
                         {link}

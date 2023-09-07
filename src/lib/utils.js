@@ -5,8 +5,13 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 export function toTitleCase(str) {
-  return str.replace(
-    /\w\S*/g,
-    (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
-  );
+  return str
+    .split("-")
+    .map((word) =>
+      word.replace(
+        /\w\S*/g,
+        (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
+      )
+    )
+    .join(" ");
 }

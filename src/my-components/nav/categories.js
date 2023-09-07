@@ -5,7 +5,7 @@ const navBarMenu = [
   },
   {
     title: "Mobiles",
-    menu: ["Samsung", "Apple", "Xiaomi", "OnePlus", "Google", "Huawei"],
+    menu: ["Samsung", "Apple", "Xiaomi", "One Plus", "Google", "Huawei"],
   },
   {
     title: "Gift Cards",
