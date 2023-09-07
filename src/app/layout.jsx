@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.className} m-0 overflow-y-auto`}>
         <NavBar />
-        <main className="grid gap-20">{children}</main>
+        {children}
       </body>
     </html>
   );
