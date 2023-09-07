@@ -6,17 +6,17 @@ export const responsive = {
     slidesToSlide: 4,
   },
   desktop: {
-    breakpoint: { max: 1024, min: 700 },
+    breakpoint: { max: 1100, min: 930 },
     items: 3,
     slidesToSlide: 3,
   },
   tablet: {
-    breakpoint: { max: 700, min: 464 },
+    breakpoint: { max: 930, min: 500 },
     items: 2,
     slidesToSlide: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 500, min: 0 },
     items: 1,
     slidesToSlide: 1,
   },

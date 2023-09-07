@@ -14,13 +14,16 @@ export default function CarouselItem(props) {
       </CardHeader>
       <CardContent className="space-y-4 text-lg">
         {/* Link in future */}
-        <h2 className="lg:text-xl font-extrabold h-[70px]">{props.name}</h2>
-        <span className="font-semibold text-xl tracking-wider mr-6">
-          {props.price}
-        </span>
-        <span className="font-semibold text-xl tracking-wider line-through">
-          $ 110
-        </span>
+        <h2 className="lg:text-xl font-extrabold h-[120px]">{props.name}</h2>
+        {/* PRICES */}
+        <div className="w-full flex gap-3">
+          <span className="font-semibold text-xl tracking-wider mr-6">
+            {props.price}
+          </span>
+          <span className="font-semibold text-xl tracking-wider line-through">
+            $1100
+          </span>
+        </div>
       </CardContent>
       <CardFooter>
         {/* Agar variant huwa to add kardena */}
