@@ -2,6 +2,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Section from "@/lib/Section";
 import { toTitleCase } from "@/lib/utils";
 import PriceRange from "@/my-components/PriceRange";
+import BrandFilter from "@/my-components/filters/BrandFilter";
+import PriceFilter from "@/my-components/filters/PriceFilter";
 import categories from "@/my-components/nav/categories";
 
 export default function Category({ params: { category } }) {
@@ -17,26 +19,9 @@ export default function Category({ params: { category } }) {
       </Section>
       <Section className="grid lg:grid-cols-[15rem_1fr] h-96">
         {/* FILTERS */}
-        <div className="p-2 hidden lg:flex flex-col space-y-4">
-          <h1 className="font-bold text-left tracking-wide">Select Price</h1>
-          <PriceRange />
-          <div className="flex flex-col gap-2">
-            <h1 className="font-bold text-left tracking-wide">Brand</h1>
-            {/* CHECKBOXES */}
-            {categories
-              .find((cat) => cat.title === titledCategory)
-              ?.menu.map((brand) => (
-                <div className="flex items-center space-x-2 pl-4">
-                  <Checkbox id={brand} />
-                  <label
-                    htmlFor={brand}
-                    className="text-md leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    {brand}
-                  </label>
-                </div>
-              ))}
-          </div>
+        <div className="p-2 pt-8 hidden lg:flex flex-col space-y-8">
+          <PriceFilter />
+          <BrandFilter titledCategory={titledCategory} />
         </div>
         {/* PRODUCTS */}
         <div className="bg-sky-500">Hi man</div>
