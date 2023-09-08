@@ -3,14 +3,14 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { useState } from "react";
 export default function PriceRange() {
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState([10, 200]);
 
   return (
     <>
       <Slider
         variant="range"
         thickness="thin"
-        max={500}
+        max={1000}
         step={1}
         value={priceRange}
         onValueChange={(value) => setPriceRange(value)}

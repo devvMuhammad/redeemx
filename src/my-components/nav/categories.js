@@ -1,4 +1,4 @@
-const navBarMenu = [
+const categories = [
   {
     title: "Laptops",
     menu: ["Dell", "HP", "Lenovo", "Apple", "Asus", "Acer"],
@@ -16,4 +16,4 @@ const navBarMenu = [
     menu: ["Headphones", "Mouse", "Keyboard", "Graphic Cards", "Monitors"],
   },
 ];
-export default navBarMenu;
+export default categories;
