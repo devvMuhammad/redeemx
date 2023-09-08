@@ -19,7 +19,7 @@ export default function Category({ params: { category } }) {
       </Section>
       <Section className="grid lg:grid-cols-[15rem_1fr] h-96">
         {/* FILTERS */}
-        <div className="p-2 pt-8 hidden lg:flex flex-col space-y-8">
+        <div className="px-3 pt-8 hidden lg:flex flex-col space-y-8">
           <PriceFilter />
           <BrandFilter titledCategory={titledCategory} />
         </div>
