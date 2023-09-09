@@ -23,7 +23,7 @@ function SidebarNavContent({ showSidebar }) {
 
         <Accordion className="border-b-0" type="single" collapsible>
           {navBarMenuArray.map((item) => (
-            <AccordionItem value={`${item.title}`}>
+            <AccordionItem key={item.title} value={`${item.title}`}>
               <AccordionTrigger className="text-lg -xl font-extrabold">
                 {item.title}
               </AccordionTrigger>
@@ -31,6 +31,7 @@ function SidebarNavContent({ showSidebar }) {
                 <ul className="text-left text-xl flex flex-col gap-2 ml-2">
                   {item.menu.map((menuItem) => (
                     <Link
+                      key={menuItem}
                       className="hover:underline"
                       href={`/${menuItem.toLowerCase().split(" ").join("")}`}
                     >

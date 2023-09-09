@@ -8,8 +8,6 @@ export default function PriceRange() {
   return (
     <>
       <Slider
-        variant="range"
-        thickness="thin"
         max={1000}
         step={1}
         value={priceRange}

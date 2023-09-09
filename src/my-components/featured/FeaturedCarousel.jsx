@@ -8,6 +8,7 @@ import "./carousel.css";
 export default function FeaturedCarousel() {
   const products = productData.map((item) => (
     <CarouselItem
+      key={item.id}
       name={item.name}
       url={item.imageurl}
       price={item.price}
