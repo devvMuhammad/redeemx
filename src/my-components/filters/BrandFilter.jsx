@@ -3,7 +3,6 @@ import React from "react";
 import categories from "../nav/categories";
 
 function BrandFilter({ titledCategory }) {
-  console.log(titledCategory, "in brand filter");
   return (
     <div className="space-y-2">
       <h1 className="font-bold text-left tracking-wide">Brand</h1>
