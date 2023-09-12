@@ -35,7 +35,7 @@ function SideDrawer({
           <div
             className={`${
               !visibleAll && "lg:hidden"
-            } fixed top-0 left-0 backdrop-blur-sm w-full h-full bg-black/50  z-40`}
+            } fixed inset-0 backdrop-blur-sm w-full h-full bg-black/50  z-40`}
             onClick={() => setShowSidebar(false)}
           ></div>
         )}

@@ -1,7 +1,5 @@
 import Link from "next/link";
 import CartItem from "./CartItem";
-import { Carrot } from "lucide-react";
-import CartIcon from "./CartIcon";
 
 export default function Cart({ showSidebar }) {
   return (
