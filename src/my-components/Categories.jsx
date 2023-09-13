@@ -22,7 +22,7 @@ export default function Categories() {
         {categories.map(({ link, title, image }) => (
           <Link
             key={link}
-            href={`/${link}`}
+            href={`/categories/${link}`}
             className="group h-[400px] rounded-xl relative overflow-hidden"
           >
             <div className="absolute inset-0 z-10 transition-transform bg-black/60 group-hover:bg-black/70" />

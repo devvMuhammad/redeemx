@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function CarouselItem(props) {
   return (
-    <Card className="mx-2 bg-black text-white">
+    <Card className="mx-2 border-2 bg-black text-white">
       <CardHeader>
         <div className="h-[200px] bg-white"></div>
       </CardHeader>
