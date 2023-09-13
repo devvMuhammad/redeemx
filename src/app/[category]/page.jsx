@@ -12,9 +12,6 @@ export default function Category({ params: { category } }) {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           {titledCategory}
         </h1>
-        <p className="text-md lg:text-xl pb-2">
-          Buy {titledCategory} from us at the best prices in the best condition.
-        </p>
       </Section>
       <Section className="grid lg:grid-cols-[15rem_1fr] h-screen pt-2 ">
         {/* FILTERS */}
