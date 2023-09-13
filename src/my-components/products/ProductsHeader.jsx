@@ -9,7 +9,7 @@ function ProductsHeader() {
   return (
     <div className="flex justify-between items-center py-2 lg:px-2 border-b border-gray-500">
       <p className="hidden md:block text-lg">
-        <strong>10</strong> of <strong>25</strong> Items
+        Showing <strong>10</strong> of <strong>25</strong> Items
       </p>
       <div className="hidden md:flex gap-2 items-center">
         <Grid2x2 />
