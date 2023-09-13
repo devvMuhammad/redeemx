@@ -15,11 +15,13 @@ function ProductsHeader() {
         <Grid2x2 />
         <Grid3x3 />
       </div>
-      <div className="flex gap-2">
-        <NumberSelect />
-        <SortSelect />
+      <div className="flex gap-2 items-center justify-between w-full md:w-auto">
+        <div className="flex gap-2">
+          <NumberSelect />
+          <SortSelect />
+        </div>
+        <FiltersSheet />
       </div>
-      <FiltersSheet />
     </div>
   );
 }
