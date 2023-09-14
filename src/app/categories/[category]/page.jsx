@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Section from "@/lib/Section";
 import { toTitleCase } from "@/lib/utils";
 import Filters from "@/my-components/filters/Filters";

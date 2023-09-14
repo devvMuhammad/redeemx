@@ -1,10 +1,8 @@
-import React from "react";
-
 import NumberSelect from "./NumberSelect";
 import SortSelect from "./SortSelect";
 import FiltersSheet from "./FiltersSheet";
 
-function ProductsHeader() {
+export default function ProductsHeader() {
   return (
     <div className="flex justify-between items-center py-2 lg:px-2 ">
       <p className="hidden md:block text-lg">
@@ -39,5 +37,3 @@ function ProductsHeader() {
     </div>
   );
 }
-
-export default ProductsHeader;
