@@ -13,11 +13,9 @@ export default function ProductsMain() {
             repellat nemo
           </h2>
           {/* PRICES */}
-          <div className="w-full flex gap-3">
-            <span className="font-semibold text-xl tracking-wider mr-6">
-              $2000
-            </span>
-            <span className="font-semibold text-xl tracking-wider line-through">
+          <div className="w-full flex gap-8">
+            <span className="font-semibold text-lg tracking-wider">$2000</span>
+            <span className="font-semibold text-lg tracking-wider line-through">
               $1100
             </span>
           </div>
