@@ -1,8 +1,16 @@
 import Section from "@/lib/Section";
-import { toTitleCase } from "@/lib/utils";
+import { toCamelCase, toTitleCase } from "@/lib/utils";
 import Filters from "@/my-components/filters/Filters";
+import categories from "@/my-components/nav/categories";
+import ProductsFooter from "@/my-components/products/ProductsFooter";
 import ProductsHeader from "@/my-components/products/ProductsHeader";
 import ProductsMain from "@/my-components/products/ProductsMain";
+
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    category: toCamelCase(category.title),
+  }));
+}
 
 export default function Category({ params: { category } }) {
   const titledCategory = toTitleCase(category);
@@ -23,6 +31,8 @@ export default function Category({ params: { category } }) {
           <ProductsHeader />
           {/* MAIN PRODUCTS */}
           <ProductsMain />
+          {/* PRODUCTS FOOTER (PAGINATION) */}
+          <ProductsFooter />
         </div>
       </Section>
     </main>

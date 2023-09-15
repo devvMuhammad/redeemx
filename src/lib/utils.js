@@ -15,3 +15,7 @@ export function toTitleCase(str) {
     )
     .join(" ");
 }
+
+export function toCamelCase(str) {
+  return str.toLowerCase().split(" ").join("-");
+}
