@@ -26,13 +26,6 @@ function ButtonSm({ children, className, active, ...props }) {
   );
 }
 
-/*Desired Output:
-- when you click the first and second, just the active button changes
-- when you click third, pagination movies by one
-- clicking double arrow moves you till end, the first second third changes respectively
-- also disable the first and last accordingly
-*/
-
 export default function ProductsFooter() {
   const BUTTONS_NUM = 3;
   const MAX_NUM = 10;

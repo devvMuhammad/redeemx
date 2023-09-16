@@ -12,9 +12,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Category({ params: { category } }) {
+export default function Category({
+  params: { category },
+  searchParams: { grid },
+}) {
   const titledCategory = toTitleCase(category);
-
+  console.log(grid);
   return (
     <main className="grid mt-8">
       <Section className="space-y-3 mb-4">
@@ -27,11 +30,8 @@ export default function Category({ params: { category } }) {
         <Filters titledCategory={titledCategory} asSheet={false} />
         {/* PRODUCTS */}
         <div className="flex flex-col bg-sy-500">
-          {/* PRODUCTS HEADER */}
           <ProductsHeader />
-          {/* MAIN PRODUCTS */}
-          <ProductsMain />
-          {/* PRODUCTS FOOTER (PAGINATION) */}
+          <ProductsMain grid={grid} />
           <ProductsFooter />
         </div>
       </Section>

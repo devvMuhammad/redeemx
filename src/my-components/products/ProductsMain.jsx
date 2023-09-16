@@ -1,14 +1,26 @@
 import { Button } from "@/components/ui/button";
 
-export default function ProductsMain() {
+export default function ProductsMain({ grid = 4 }) {
+  const gridObj = {
+    2: "lg:grid-cols-2",
+    3: "lg:grid-cols-3",
+    4: "lg:grid-cols-4",
+  };
+  console.log(gridObj[grid]);
   return (
-    <div className="p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-2 b-red-500">
+    <div
+      className={`p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${gridObj[grid]} gap-y-4 gap-x-2 b-red-500`}
+    >
       {Array.from({ length: 8 }, (_, i) => (
-        <div className="p-4 flex flex-col gap-4 border border-gray-600 rounded-lg ">
-          <div className="h-[200px] bg-gray-500 rounded-md"></div>
+        <div className="flex flex-col p-4 gap-4 border border-gray-600 rounded-lg ">
+          <div
+            className={`${
+              +grid === 2 ? "h-[300px]" : "h-[200px]"
+            }  bg-gray-500 rounded-md`}
+          ></div>
 
           {/* Link in future */}
-          <h2>
+          <h2 className="lg:text-lg">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
             repellat nemo
           </h2>
