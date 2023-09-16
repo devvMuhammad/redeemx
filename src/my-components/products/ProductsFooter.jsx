@@ -32,16 +32,20 @@ function ButtonSm({ children, className, active, ...props }) {
 - clicking double arrow moves you till end, the first second third changes respectively
 - also disable the first and last accordingly
 */
+
 export default function ProductsFooter() {
-  // [3,4,5]
-  // [1,2,3]
+  const BUTTONS_NUM = 3;
+  const MAX_NUM = 10;
+
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(1);
-  const arr = Array.from({ length: 3 }).map((_, i, array) => count + i);
+  const arr = Array.from({ length: BUTTONS_NUM }).map(
+    (_, i, array) => count + i
+  );
   const next = () => {
     setPage((prev) => prev + 1);
     // if currentPage is the end of button, then increase the count
-    if (page === arr[arr.length - 2] && page < 10 - 2) {
+    if (page === arr[arr.length - 2] && page < MAX_NUM - 2) {
       setCount((prev) => prev + 2);
     }
   };
@@ -76,10 +80,10 @@ export default function ProductsFooter() {
             onClick={() => {
               setPage(num);
               setCount((prev) => {
-                if (num === 10 - 1) {
+                if (num === MAX_NUM - 1) {
                   return prev;
                 }
-                if (num === arr[arr.length - 1] && num < 10 - 1) {
+                if (num === arr[arr.length - 1] && num < MAX_NUM - 1) {
                   return prev + 2;
                 }
                 if (num === arr[0] && num > 1) {
@@ -95,7 +99,7 @@ export default function ProductsFooter() {
           </ButtonSm>
         ))}
         {/* DOTS */}
-        {page > 10 - 3 || (
+        {page <= MAX_NUM - BUTTONS_NUM && (
           <ButtonSm className="text-xl tracking-wide cursor-default">
             ...
           </ButtonSm>
@@ -104,17 +108,23 @@ export default function ProductsFooter() {
         <ButtonSm
           className="w-10 text-md"
           onClick={() => {
-            setCount(7);
-            setPage(10);
+            setCount(MAX_NUM - BUTTONS_NUM);
+            setPage(MAX_NUM);
           }}
-          active={page === 10}
+          active={page === MAX_NUM}
         >
-          10
+          {MAX_NUM}
         </ButtonSm>
-        <ButtonSm disabled={page === 10} onClick={next}>
+        <ButtonSm disabled={page === MAX_NUM} onClick={next}>
           <ChevronRightIcon />
         </ButtonSm>
-        <ButtonSm disabled={page === 10}>
+        <ButtonSm
+          disabled={page === MAX_NUM}
+          onClick={() => {
+            setCount(MAX_NUM - BUTTONS_NUM);
+            setPage(MAX_NUM);
+          }}
+        >
           <ChevronsRightIcon />
         </ButtonSm>
       </div>
