@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ProductsMain() {
   return (
-    <div className="p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-1 b-red-500">
+    <div className="p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4 gap-x-2 b-red-500">
       {Array.from({ length: 8 }, (_, i) => (
         <div className="p-4 flex flex-col gap-4 border border-gray-600 rounded-lg ">
           <div className="h-[200px] bg-gray-500 rounded-md"></div>
