@@ -37,11 +37,11 @@ export default function ProductsFooter() {
   // [1,2,3]
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(1);
-  const arr = Array.from({ length: 4 }).map((_, i, array) => count + i);
+  const arr = Array.from({ length: 3 }).map((_, i, array) => count + i);
   const next = () => {
     setPage((prev) => prev + 1);
     // if currentPage is the end of button, then increase the count
-    if (page === arr[arr.length - 1]) {
+    if (page === arr[arr.length - 2] && page < 10 - 2) {
       setCount((prev) => prev + 2);
     }
   };
@@ -50,14 +50,20 @@ export default function ProductsFooter() {
 
     if (page === arr[0]) {
       console.log("h1");
-      setCount((prev) => prev - 3);
+      setCount((prev) => prev - 2);
     }
   };
   console.log(arr);
   return (
     <div className="flex items-center justify-center b-yellow-500 h-20 bordr-t border-white">
       <div className="flex gap-2 ">
-        <ButtonSm disabled={page === 1}>
+        <ButtonSm
+          disabled={page === 1}
+          onClick={() => {
+            setPage(1);
+            setCount(1);
+          }}
+        >
           <ChevronsLeftIcon />
         </ButtonSm>
         <ButtonSm disabled={page === 1} onClick={prev}>
@@ -70,10 +76,13 @@ export default function ProductsFooter() {
             onClick={() => {
               setPage(num);
               setCount((prev) => {
-                if (num === arr[arr.length - 1]) {
+                if (num === 10 - 1) {
+                  return prev;
+                }
+                if (num === arr[arr.length - 1] && num < 10 - 1) {
                   return prev + 2;
                 }
-                if (num === arr[0]) {
+                if (num === arr[0] && num > 1) {
                   return prev - 2;
                 }
                 return prev;
@@ -86,15 +95,26 @@ export default function ProductsFooter() {
           </ButtonSm>
         ))}
         {/* DOTS */}
-        <ButtonSm className="text-xl tracking-wide cursor-default">
-          •••
-        </ButtonSm>
+        {page > 10 - 3 || (
+          <ButtonSm className="text-xl tracking-wide cursor-default">
+            ...
+          </ButtonSm>
+        )}
         {/* LAST PageBER */}
-        <ButtonSm className="w-10 text-md">100</ButtonSm>
-        <ButtonSm disabled={page === 100} onClick={next}>
+        <ButtonSm
+          className="w-10 text-md"
+          onClick={() => {
+            setCount(7);
+            setPage(10);
+          }}
+          active={page === 10}
+        >
+          10
+        </ButtonSm>
+        <ButtonSm disabled={page === 10} onClick={next}>
           <ChevronRightIcon />
         </ButtonSm>
-        <ButtonSm disabled={page === 100}>
+        <ButtonSm disabled={page === 10}>
           <ChevronsRightIcon />
         </ButtonSm>
       </div>
