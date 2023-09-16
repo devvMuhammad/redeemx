@@ -50,11 +50,12 @@ export default function ProductsFooter() {
       setCount((prev) => prev - 2);
     }
   };
-  console.log(arr);
+
   return (
-    <div className="flex items-center justify-center b-yellow-500 h-20 bordr-t border-white">
-      <div className="flex gap-2 ">
+    <div className="flex justify-center items-center h-20 border-white">
+      <div className="flex gap-2">
         <ButtonSm
+          className="hidden md:block"
           disabled={page === 1}
           onClick={() => {
             setPage(1);
@@ -112,6 +113,7 @@ export default function ProductsFooter() {
           <ChevronRightIcon />
         </ButtonSm>
         <ButtonSm
+          className="hidden md:block"
           disabled={page === MAX_NUM}
           onClick={() => {
             setCount(MAX_NUM - BUTTONS_NUM);
