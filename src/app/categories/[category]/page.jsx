@@ -17,7 +17,6 @@ export default function Category({
   searchParams: { grid },
 }) {
   const titledCategory = toTitleCase(category);
-  console.log(grid);
   return (
     <main className="grid mt-8">
       <Section className="space-y-3 mb-4">
