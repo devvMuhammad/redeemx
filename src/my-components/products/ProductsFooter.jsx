@@ -39,15 +39,15 @@ export default function ProductsFooter() {
     setPage((prev) => prev + 1);
     // if currentPage is the end of button, then increase the count
     if (page === arr[arr.length - 2] && page < MAX_NUM - 2) {
-      setCount((prev) => prev + 2);
+      setCount((prev) => prev + 1);
     }
   };
   const prev = () => {
     setPage((prev) => prev - 1);
 
-    if (page === arr[0]) {
-      console.log("h1");
-      setCount((prev) => prev - 2);
+    if (page === arr[1]) {
+      // console.log("h1");
+      setCount((prev) => prev - 1);
     }
   };
 
@@ -64,7 +64,7 @@ export default function ProductsFooter() {
         >
           <ChevronsLeftIcon />
         </ButtonSm>
-        <ButtonSm disabled={page === 1} onClick={prev}>
+        <ButtonSm disabled={page <= 2} onClick={prev}>
           <ChevronLeftIcon />
         </ButtonSm>
         {/* PageBERS */}
@@ -78,10 +78,13 @@ export default function ProductsFooter() {
                   return prev;
                 }
                 if (num === arr[arr.length - 1] && num < MAX_NUM - 1) {
-                  return prev + 2;
+                  return prev + 1;
                 }
                 if (num === arr[0] && num > 1) {
-                  return prev - 2;
+                  if (page === num) {
+                    return prev;
+                  }
+                  return prev - 1;
                 }
                 return prev;
                 // num !== arr[arr.length - 1] ? prev : prev + 2
