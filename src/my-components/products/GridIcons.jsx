@@ -23,7 +23,7 @@ export default function GridIcons() {
     params.set(name, value);
     return params.toString();
   };
-
+  console.log(+searchParams.get("grid"));
   return (
     <div className="hidden md:flex gap-4 items-center">
       {gridArray.map(({ col, gridCol, length, size }) => (
@@ -33,15 +33,14 @@ export default function GridIcons() {
           }}
           className={`grid ${gridCol} gap-1 group cursor-pointer`}
         >
-          {Array.from({ length }).map(() => (
-            <div
+          {Array.from({ length }).map((_, i) => (
+            <span
+              key={i}
               className={`${size} ${
-                (!searchParams.get("grid") && col === 4) ||
-                col === +searchParams.get("grid")
-                  ? "bg-gray-500"
-                  : "bg-white"
+                // (!searchParams.get("grid") && col === 4) ||
+                col === +searchParams.get("grid") ? "bg-slate-500" : "bg-white"
               } rounded-full bg-white group-hover:bg-gray-500 transition-all duration-200`}
-            ></div>
+            ></span>
           ))}
         </div>
       ))}
