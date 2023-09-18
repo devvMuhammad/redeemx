@@ -2,7 +2,6 @@ import NumberSelect from "./NumberSelect";
 import SortSelect from "./SortSelect";
 import FiltersSheet from "./FiltersSheet";
 import GridIcons from "./GridIcons";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ProductsHeader() {
   return (
