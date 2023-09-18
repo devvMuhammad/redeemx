@@ -20,8 +20,8 @@ export default function Loading() {
         >
           {Array(12)
             .fill("")
-            .map(() => (
-              <div className="flex flex-col p-4 gap-4 rounded-lg ">
+            .map((_, i) => (
+              <div key={i} className="flex flex-col p-4 gap-4 rounded-lg ">
                 <Skeleton className="h-[250px] w-full" />
 
                 <Skeleton className="h-30 w-full" />
