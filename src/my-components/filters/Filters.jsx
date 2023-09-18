@@ -14,7 +14,6 @@ export default function Filters({ titledCategory, asSheet }) {
       <BrandFilter titledCategory={titledCategory} />
       <ReviewsFilter />
       <Button className="font-bold tracking-wide">Apply Filters</Button>
-      {/* <SheetDemo titledCategory={titledCategory} /> */}
     </div>
   );
 }

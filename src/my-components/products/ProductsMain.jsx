@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-export default function ProductsMain({ grid = 4 }) {
+export default function ProductsMain({ grid = 4, products }) {
   const gridObj = {
     2: "lg:grid-cols-2",
     3: "lg:grid-cols-3",
@@ -10,7 +10,7 @@ export default function ProductsMain({ grid = 4 }) {
     <div
       className={`p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${gridObj[grid]} gap-y-4 gap-x-2 b-red-500`}
     >
-      {Array.from({ length: 12 }, (_, i) => (
+      {products.map((_, i) => (
         <div className="flex flex-col p-4 gap-4 border border-gray-600 rounded-lg ">
           <div
             className={`${
