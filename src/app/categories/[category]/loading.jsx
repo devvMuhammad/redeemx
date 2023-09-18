@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function Loading() {
   return (
     <>
-      <div className="hidden lg:block px-3 space-y-8 border-r border-gray-500">
+      <div className="hidden lg:block px-3 space-y-8">
         <Skeleton className="h-20 w-full" />
         <Skeleton className="h-40 w-full" />
         <Skeleton className="h-40 w-full" />
