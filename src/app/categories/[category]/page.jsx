@@ -20,11 +20,16 @@ export default async function Category({
   searchParams: { grid },
 }) {
   const titledCategory = toTitleCase(category);
+  // const categories = await getCategories();
   return (
     <>
       {/* FILTERS */}
       <Suspense fallback={<FiltersSkeleton />}>
-        <Filters titledCategory={titledCategory} asSheet={false} />
+        <Filters
+          // categories={categories}
+          titledCategory={titledCategory}
+          asSheet={false}
+        />
       </Suspense>
 
       {/* PRODUCTS */}
