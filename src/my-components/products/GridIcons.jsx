@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const gridArray = [
   { col: 2, gridCol: "grid-cols-2", length: 4, size: "w-2 h-2" },

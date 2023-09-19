@@ -2,8 +2,10 @@ import NumberSelect from "./NumberSelect";
 import SortSelect from "./SortSelect";
 import FiltersSheet from "./FiltersSheet";
 import GridIcons from "./GridIcons";
+import categories from "../nav/categories";
 
 export default function ProductsHeader() {
+  // memoized request here
   return (
     <div className="flex justify-between items-center py-2 lg:px-2 ">
       <p className="hidden md:block text-lg">
@@ -15,7 +17,7 @@ export default function ProductsHeader() {
           <NumberSelect />
           <SortSelect />
         </div>
-        <FiltersSheet />
+        <FiltersSheet categories={categories} />
       </div>
     </div>
   );

@@ -1,15 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { productData } from "../featured/FeaturedData";
 
+function getProducts() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(productData);
+    }, 5000);
+  });
+}
+
 export default async function ProductsMain({ grid = 4 }) {
-  const prom = () => {
-    return new Promise((res, rej) => {
-      // setTimeout(() => {
-      res(productData);
-      // }, 5000);
-    });
-  };
-  const products = await prom();
+  const productDataX = await getProducts();
   const gridObj = {
     2: "lg:grid-cols-2",
     3: "lg:grid-cols-3",
@@ -19,7 +20,7 @@ export default async function ProductsMain({ grid = 4 }) {
     <div
       className={`p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${gridObj[grid]} gap-y-4 gap-x-2 b-red-500`}
     >
-      {products.map((_, i) => (
+      {productDataX.map((_, i) => (
         <div
           key={i}
           className="flex flex-col p-4 gap-4 border border-gray-600 rounded-lg "

@@ -5,7 +5,7 @@ import { SlidersHorizontalIcon } from "lucide-react";
 import Filters from "@/my-components/filters/Filters";
 import { toTitleCase } from "@/lib/utils";
 
-function FiltersSheet() {
+function FiltersSheet({ categories }) {
   const { category } = useParams();
   const titledCategory = toTitleCase(category);
   return (
@@ -14,7 +14,11 @@ function FiltersSheet() {
         <SlidersHorizontalIcon className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent className="px-2 py-10">
-        <Filters titledCategory={titledCategory} asSheet={true} />
+        <Filters
+          titledCategory={titledCategory}
+          asSheet={true}
+          categories={categories}
+        />
       </SheetContent>
     </Sheet>
   );

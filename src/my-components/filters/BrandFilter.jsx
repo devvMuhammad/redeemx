@@ -1,18 +1,7 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import React from "react";
-import categories from "../nav/categories";
 
-async function getCategories() {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      res(categories);
-    }, 3000);
-  });
-}
-
-export default async function BrandFilter({ titledCategory }) {
-  const categories = await getCategories();
-
+export default function BrandFilter({ titledCategory, categories }) {
   return (
     <div className="space-y-2">
       <h1 className="font-bold text-left tracking-wide">Brand</h1>
