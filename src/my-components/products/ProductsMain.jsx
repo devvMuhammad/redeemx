@@ -20,7 +20,10 @@ export default async function ProductsMain({ grid = 4 }) {
       className={`p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${gridObj[grid]} gap-y-4 gap-x-2 b-red-500`}
     >
       {products.map((_, i) => (
-        <div className="flex flex-col p-4 gap-4 border border-gray-600 rounded-lg ">
+        <div
+          key={i}
+          className="flex flex-col p-4 gap-4 border border-gray-600 rounded-lg "
+        >
           <div
             className={`${
               +grid === 2 ? "h-[300px]" : "h-[200px]"
