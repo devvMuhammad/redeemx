@@ -7,7 +7,7 @@ function ReviewsFilter() {
       {/* CHECKBOXES */}
       {["4 stars & up", "3 stars & up", "2 stars & up", "1 star & up"].map(
         (review) => (
-          <div className="flex items-center space-x-2 pl-4">
+          <div key={review} className="flex items-center space-x-2 pl-4">
             <Checkbox id={review} />
             <label
               htmlFor={review}

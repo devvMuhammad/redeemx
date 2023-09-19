@@ -16,20 +16,14 @@ const gridArray = [
 export default function GridIcons() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
-  const queryString = (name, value) => {
-    const params = new URLSearchParams(searchParams);
-    params.set(name, value);
-    return params.toString();
-  };
-  console.log(+searchParams.get("grid"));
   return (
     <div className="hidden md:flex gap-4 items-center">
       {gridArray.map(({ col, gridCol, length, size }) => (
         <div
           onClick={() => {
-            router.push(pathname + "?" + queryString("grid", col));
+            router.push(`?grid=${col}`);
           }}
           className={`grid ${gridCol} gap-1 group cursor-pointer`}
         >
@@ -37,8 +31,10 @@ export default function GridIcons() {
             <span
               key={i}
               className={`${size} ${
-                // (!searchParams.get("grid") && col === 4) ||
-                col === +searchParams.get("grid") ? "bg-slate-500" : "bg-white"
+                (!searchParams.get("grid") && col === 4) ||
+                col === +searchParams.get("grid")
+                  ? "bg-slate-500"
+                  : "bg-white"
               } rounded-full bg-white group-hover:bg-gray-500 transition-all duration-200`}
             ></span>
           ))}

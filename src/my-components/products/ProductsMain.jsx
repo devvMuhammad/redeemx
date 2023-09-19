@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
+import { productData } from "../featured/FeaturedData";
 
-export default function ProductsMain({ grid = 4, products }) {
+export default async function ProductsMain({ grid = 4 }) {
+  const prom = () => {
+    return new Promise((res, rej) => {
+      // setTimeout(() => {
+      res(productData);
+      // }, 5000);
+    });
+  };
+  const products = await prom();
   const gridObj = {
     2: "lg:grid-cols-2",
     3: "lg:grid-cols-3",

@@ -5,6 +5,9 @@ import categories from "@/my-components/nav/categories";
 import ProductsFooter from "@/my-components/products/ProductsFooter";
 import ProductsHeader from "@/my-components/products/ProductsHeader";
 import ProductsMain from "@/my-components/products/ProductsMain";
+import FiltersSkeleton from "@/my-components/ui/FiltersSkeletion";
+import ProductsSkeleton from "@/my-components/ui/ProductsSkeletion";
+import { Suspense } from "react";
 
 export async function generateStaticParams() {
   return categories.map((category) => ({
@@ -16,26 +19,22 @@ export default async function Category({
   params: { category },
   searchParams: { grid },
 }) {
-  const prom = () => {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        res(productData);
-      }, 5000);
-    });
-  };
-  const products = await prom();
   const titledCategory = toTitleCase(category);
   return (
     <>
       {/* FILTERS */}
-      <Filters titledCategory={titledCategory} asSheet={false} />
+      <Suspense fallback={<FiltersSkeleton />}>
+        <Filters titledCategory={titledCategory} asSheet={false} />
+      </Suspense>
 
       {/* PRODUCTS */}
-      <div className="flex flex-col bg-sy-500">
-        <ProductsHeader />
-        <ProductsMain grid={grid} products={products} />
-        <ProductsFooter />
-      </div>
+      <Suspense fallback={<ProductsSkeleton />}>
+        <div className="flex flex-col bg-sy-500">
+          <ProductsHeader />
+          <ProductsMain grid={grid} />
+          <ProductsFooter />
+        </div>
+      </Suspense>
     </>
   );
 }

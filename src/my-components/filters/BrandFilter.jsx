@@ -2,7 +2,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import React from "react";
 import categories from "../nav/categories";
 
-function BrandFilter({ titledCategory }) {
+async function getCategories() {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res(categories);
+    }, 3000);
+  });
+}
+
+export default async function BrandFilter({ titledCategory }) {
+  const categories = await getCategories();
+
   return (
     <div className="space-y-2">
       <h1 className="font-bold text-left tracking-wide">Brand</h1>
@@ -10,7 +20,7 @@ function BrandFilter({ titledCategory }) {
       {categories
         .find((cat) => cat.title === titledCategory)
         ?.menu.map((brand) => (
-          <div className="flex items-center space-x-2 pl-4">
+          <div key={brand} className="flex items-center space-x-2 pl-4">
             <Checkbox id={brand} />
             <label
               htmlFor={brand}
@@ -23,5 +33,3 @@ function BrandFilter({ titledCategory }) {
     </div>
   );
 }
-
-export default BrandFilter;
