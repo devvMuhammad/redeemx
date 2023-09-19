@@ -22,7 +22,7 @@ export default function GridIcons() {
     <div className="hidden md:flex gap-4 items-center">
       {gridArray.map(({ col, gridCol, length, size }) => (
         <div
-          key={col}
+          key={length}
           onClick={() => {
             router.push(`?grid=${col}`);
           }}
