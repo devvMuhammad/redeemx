@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -7,9 +8,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 export default function NumberSelect() {
+  const router = useRouter();
   return (
-    <Select defaultValue={10}>
+    <Select
+      defaultValue={10}
+      onValueChange={(value) => {
+        router.push(`?per-page=${value}`);
+      }}
+    >
       <SelectTrigger className="w-[55px]">
         <SelectValue placeholder="Sort by" />
       </SelectTrigger>

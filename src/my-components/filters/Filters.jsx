@@ -4,16 +4,13 @@ import PriceFilter from "./PriceFilter";
 import ReviewsFilter from "./ReviewsFilter";
 import categories from "../nav/categories";
 
-function getFilters() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(categories);
-    }, 2000);
-  });
+async function getFilters() {
+  const response = await fetch("http://localhost:3000/api/filters");
+  return response.json();
 }
 
 export default async function Filters({ titledCategory, asSheet }) {
-  const categories = await getFilters();
+  const { data: categories } = await getFilters();
   return (
     <div
       className={`${
