@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -10,12 +10,13 @@ import {
 } from "@/components/ui/select";
 
 export default function NumberSelect() {
+  const pathname = usePathname();
   const router = useRouter();
   return (
     <Select
       defaultValue={10}
       onValueChange={(value) => {
-        router.push(`?per-page=${value}`);
+        router.push(`${pathname}?per-page=${value}`);
       }}
     >
       <SelectTrigger className="w-[55px]">

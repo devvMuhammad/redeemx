@@ -3,11 +3,13 @@ import { Button } from "@/components/ui/button";
 
 async function getProducts() {
   const response = await fetch("http://localhost:3000/api/products");
+
   return response.json();
 }
 
 export default async function ProductsMain({ grid = 4 }) {
   const { data: products } = await getProducts();
+  // console.log(data, "in products main page");
   const gridObj = {
     2: "lg:grid-cols-2",
     3: "lg:grid-cols-3",
@@ -17,9 +19,9 @@ export default async function ProductsMain({ grid = 4 }) {
     <div
       className={`p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${gridObj[grid]} gap-y-4 gap-x-2 b-red-500`}
     >
-      {products.map((_, i) => (
+      {products.map((product) => (
         <div
-          key={i}
+          key={product.name}
           className="flex flex-col p-4 gap-4 border border-gray-600 rounded-lg "
         >
           <div
@@ -29,15 +31,14 @@ export default async function ProductsMain({ grid = 4 }) {
           ></div>
 
           {/* Link in future */}
-          <h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            repellat nemo
-          </h2>
+          <h2 className="flex-1">{product.name}</h2>
           {/* PRICES */}
           <div className="flex gap-8">
-            <span className="font-semibold text-lg tracking-wider">$2000</span>
+            <span className="font-semibold text-lg tracking-wider">
+              {product.price}
+            </span>
             <span className="font-semibold text-lg tracking-wider line-through">
-              $1100
+              {product.discount}
             </span>
           </div>
 
