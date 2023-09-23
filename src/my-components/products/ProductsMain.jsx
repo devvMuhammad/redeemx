@@ -1,23 +1,16 @@
 import { Button } from "@/components/ui/button";
-// import { productData } from "../featured/FeaturedData";
+import { connectDB } from "@/lib/connectDB";
+import Product from "@/lib/productsSchema";
 
-async function getProducts() {
-  const response = await fetch("http://localhost:3000/api/products");
-
-  return response.json();
-}
-
-export default async function ProductsMain({ grid = 4 }) {
-  const { data: products } = await getProducts();
-  // console.log(data, "in products main page");
+export default async function ProductsMain({ grid, products }) {
   const gridObj = {
-    2: "lg:grid-cols-2",
-    3: "lg:grid-cols-3",
-    4: "lg:grid-cols-4",
+    2: "lg:grid-cols-2 gap-x-8",
+    3: "lg:grid-cols-3 gap-x-6",
+    4: "lg:grid-cols-4 gap-x-2",
   };
   return (
     <div
-      className={`p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${gridObj[grid]} gap-y-4 gap-x-2 b-red-500`}
+      className={`p-2 flex-1 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${gridObj[grid]} gap-y-4 b-red-500`}
     >
       {products.map((product) => (
         <div
@@ -31,18 +24,19 @@ export default async function ProductsMain({ grid = 4 }) {
           ></div>
 
           {/* Link in future */}
-          <h2 className="flex-1">{product.name}</h2>
+          <h2 className={`flex-1 ${+grid < 4 && "text-xl"}`}>{product.name}</h2>
           {/* PRICES */}
-          <div className="flex gap-8">
-            <span className="font-semibold text-lg tracking-wider">
-              {product.price}
-            </span>
-            <span className="font-semibold text-lg tracking-wider line-through">
-              {product.discount}
-            </span>
-          </div>
+          <div className="space-y-4">
+            <div className={`flex gap-8 flex-1 ${+grid < 4 && "text-xl"}`}>
+              <span className="font-semibold text-lg tracking-wider">
+                ${product.price}
+              </span>
+              <span className="font-semibold text-lg tracking-wider line-through">
+                {product.discount && "$"}
+                {product.discount}
+              </span>
+            </div>
 
-          <div>
             {/* Agar variant huwa to add kardena */}
             <Button className="font-bold tracking-wide" size="sm">
               Add to Cart

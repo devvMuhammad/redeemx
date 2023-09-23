@@ -19,3 +19,10 @@ export function toTitleCase(str) {
 export function toCamelCase(str) {
   return str.toLowerCase().split(" ").join("-");
 }
+
+export const createQueryString = (name, value, searchParams) => {
+  const params = new URLSearchParams(searchParams);
+  params.set(name, value);
+
+  return params.toString();
+};

@@ -1,3 +1,4 @@
+"use client";
 import {
   Select,
   SelectContent,
@@ -6,18 +7,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
 export default function SortSelect() {
+  const { updateSearchParams } = useQueryParamUpdate();
   return (
-    <Select defaultValue="price-low-to-high">
+    <Select
+      defaultValue="price_asc"
+      onValueChange={(value) => updateSearchParams("sort", value)}
+    >
       <SelectTrigger className="w-[170px]">
         <SelectValue placeholder="Sort by" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectItem value="price-low-to-high">Price: Low to High</SelectItem>
-          <SelectItem value="price-high-to-low">Price: High to Low</SelectItem>
+          <SelectItem value="price_asc">Price: Low to High</SelectItem>
+          <SelectItem value="price_dsc">Price: High to Low</SelectItem>
           <SelectItem value="newest">Newest Arrivals</SelectItem>
-          <SelectItem value="best-sellers">Best Sellers</SelectItem>
+          <SelectItem value="best">Best Sellers</SelectItem>
           <SelectItem value="a-z">A-Z</SelectItem>
           <SelectItem value="z-a">Z-A</SelectItem>
         </SelectGroup>

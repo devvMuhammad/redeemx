@@ -5,6 +5,7 @@ const productsSchema = new Schema({
   price: mongoose.Decimal128,
   discount: mongoose.Decimal128,
   imageUrl: String,
+  brand: String,
 });
 
 const Product =

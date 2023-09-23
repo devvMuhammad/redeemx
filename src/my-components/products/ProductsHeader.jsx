@@ -2,10 +2,12 @@ import NumberSelect from "./NumberSelect";
 import SortSelect from "./SortSelect";
 import FiltersSheet from "./FiltersSheet";
 import GridIcons from "./GridIcons";
-import categories from "../nav/categories";
+// import categories from "../nav/categories";
+import { getFilters } from "../filters/FiltersServer";
 
-export default function ProductsHeader() {
+export default async function ProductsHeader() {
   // memoized request here
+  const { data: categories } = await getFilters();
   return (
     <div className="flex justify-between items-center py-2 lg:px-2 ">
       <p className="hidden md:block text-lg">

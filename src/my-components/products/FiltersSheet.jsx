@@ -2,8 +2,8 @@
 import { useParams } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SlidersHorizontalIcon } from "lucide-react";
-import Filters from "@/my-components/filters/Filters";
 import { toTitleCase } from "@/lib/utils";
+import FiltersClient from "@/my-components/filters/FiltersClient";
 
 function FiltersSheet({ categories }) {
   const { category } = useParams();
@@ -14,7 +14,7 @@ function FiltersSheet({ categories }) {
         <SlidersHorizontalIcon className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent className="px-2 py-10">
-        <Filters
+        <FiltersClient
           titledCategory={titledCategory}
           asSheet={true}
           categories={categories}

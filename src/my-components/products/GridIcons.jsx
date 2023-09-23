@@ -1,6 +1,9 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import { createQueryString } from "@/lib/utils";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useCallback } from "react";
 
 const gridArray = [
   { col: 2, gridCol: "grid-cols-2", length: 4, size: "w-2 h-2" },
@@ -14,18 +17,14 @@ const gridArray = [
 ];
 
 export default function GridIcons() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  // const pathname = usePathname();
+  const { searchParams, updateSearchParams } = useQueryParamUpdate();
 
   return (
     <div className="hidden md:flex gap-4 items-center">
       {gridArray.map(({ col, gridCol, length, size }) => (
         <div
           key={length}
-          onClick={() => {
-            router.push(`?grid=${col}`);
-          }}
+          onClick={() => updateSearchParams("grid", col)}
           className={`grid ${gridCol} gap-1 group cursor-pointer`}
         >
           {Array.from({ length }).map((_, i) => (
@@ -34,7 +33,7 @@ export default function GridIcons() {
               className={`${size} ${
                 (!searchParams.get("grid") && col === 4) ||
                 col === +searchParams.get("grid")
-                  ? "bg-slate-500"
+                  ? "bg-blue-500"
                   : "bg-white"
               } rounded-full bg-white group-hover:bg-gray-500 transition-all duration-200`}
             ></span>
