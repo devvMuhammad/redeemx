@@ -21,15 +21,14 @@ async function getProducts({ brand }) {
 
 export default async function Products({ searchParams }) {
   const { grid = 4, brand } = searchParams;
-  console.log(brand);
   const products = await getProducts({ brand });
 
   return (
     <div className="flex flex-col bg-sy-500">
       <ProductsHeader />
-      <Suspense key={brand} fallback={<MainProductsSkeleton />}>
-        <ProductsMain grid={grid} products={products} />
-      </Suspense>
+      {/* <Suspense key={brand} fallback={<MainProductsSkeleton />}> */}
+      <ProductsMain key={brand} grid={grid} products={products} />
+      {/* </Suspense> */}
       <ProductsFooter />
     </div>
   );

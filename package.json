@@ -23,7 +23,7 @@
     "eslint-config-next": "13.4.19",
     "lucide-react": "^0.268.0",
     "mongoose": "^7.5.2",
-    "next": "13.4.19",
+    "next": "^13.5.3-canary.3",
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",

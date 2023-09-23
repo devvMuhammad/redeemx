@@ -18,6 +18,12 @@ export async function generateStaticParams() {
   }));
 }
 
+function SuspensedProducts({ brand, searchParams }) {
+  <Suspense key={brand} fallback={<ProductsSkeleton />}>
+    <Products key={brand} searchParams={searchParams} />
+  </Suspense>;
+}
+
 export default async function Category({ params: { category }, searchParams }) {
   const titledCategory = toTitleCase(category);
   // const categories = await getCategories();
@@ -29,7 +35,8 @@ export default async function Category({ params: { category }, searchParams }) {
       </Suspense>
 
       {/* PRODUCTS */}
-      <Suspense fallback={<ProductsSkeleton />}>
+
+      <Suspense key={searchParams.brand} fallback={<ProductsSkeleton />}>
         <Products searchParams={searchParams} />
       </Suspense>
     </>

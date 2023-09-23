@@ -1,8 +1,9 @@
 import NavBar from "@/my-components/nav/NavBar";
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
+// const inter = Inter({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",

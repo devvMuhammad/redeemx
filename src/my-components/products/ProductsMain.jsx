@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { connectDB } from "@/lib/connectDB";
-import Product from "@/lib/productsSchema";
 
-export default async function ProductsMain({ grid, products }) {
+export default function ProductsMain({ grid, products }) {
   const gridObj = {
     2: "lg:grid-cols-2 gap-x-8",
     3: "lg:grid-cols-3 gap-x-6",
