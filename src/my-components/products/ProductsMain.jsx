@@ -30,8 +30,7 @@ export default function ProductsMain({ grid, products }) {
                 ${product.price}
               </span>
               <span className="font-semibold text-lg tracking-wider line-through">
-                {product.discount && "$"}
-                {product.discount}
+                {product.discount && `$${product.discount + product.price}`}
               </span>
             </div>
 
