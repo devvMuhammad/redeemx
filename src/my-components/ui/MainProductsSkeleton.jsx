@@ -10,9 +10,9 @@ function MainProductsSkeleton() {
         .fill("")
         .map((_, i) => (
           <div key={i} className="flex flex-col p-4 gap-4 rounded-lg ">
-            <Skeleton className="h-[250px] w-full" />
+            <Skeleton className="h-[200px] w-full" />
 
-            <Skeleton className="h-30 w-full" />
+            <Skeleton className="h-12 w-full" />
             {/* PRICES */}
             <div className="flex gap-8">
               <Skeleton className="h-10 w-20" />
