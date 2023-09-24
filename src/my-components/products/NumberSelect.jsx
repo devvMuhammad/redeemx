@@ -17,7 +17,7 @@ export default function NumberSelect() {
     <Select
       defaultValue={10}
       onValueChange={(value) => {
-        updateSearchParams("perPage", value);
+        updateSearchParams("perPage", value, false);
       }}
     >
       <SelectTrigger className="w-[55px]">

@@ -24,7 +24,7 @@ export default function GridIcons() {
       {gridArray.map(({ col, gridCol, length, size }) => (
         <div
           key={length}
-          onClick={() => updateSearchParams("grid", col)}
+          onClick={() => updateSearchParams("grid", col, false)}
           className={`grid ${gridCol} gap-1 group cursor-pointer`}
         >
           {Array.from({ length }).map((_, i) => (

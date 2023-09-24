@@ -13,7 +13,7 @@ export default function Checkbox({ id, queryName, queryValue, ...props }) {
         if (!isChecked) {
           // dont delete query directly, first check if there is a value already in place, we have to remove that one
           // e.g ?brand=HP.Apple --> ?brand=HP
-          if (searchParams.get(queryName).includes(".")) {
+          if (searchParams.get(queryName)?.includes(".")) {
             // convert to array and remove the one
             let queries = searchParams.get(queryName).split(".");
             // remove the clicked one

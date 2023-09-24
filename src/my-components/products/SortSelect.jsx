@@ -13,7 +13,7 @@ export default function SortSelect() {
   return (
     <Select
       defaultValue="price_asc"
-      onValueChange={(value) => updateSearchParams("sort", value)}
+      onValueChange={(value) => updateSearchParams("sort", value, false)}
     >
       <SelectTrigger className="w-[170px]">
         <SelectValue placeholder="Sort by" />
