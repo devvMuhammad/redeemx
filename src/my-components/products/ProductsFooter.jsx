@@ -64,7 +64,11 @@ export default function ProductsFooter() {
         >
           <ChevronsLeftIcon />
         </ButtonSm>
-        <ButtonSm disabled={page <= 2} onClick={prev}>
+        <ButtonSm
+          className="hidden md:block"
+          disabled={page <= 2}
+          onClick={prev}
+        >
           <ChevronLeftIcon />
         </ButtonSm>
         {/* PageBERS */}
@@ -112,7 +116,11 @@ export default function ProductsFooter() {
         >
           {MAX_NUM}
         </ButtonSm>
-        <ButtonSm disabled={page === MAX_NUM} onClick={next}>
+        <ButtonSm
+          className="hidden md:block"
+          disabled={page === MAX_NUM}
+          onClick={next}
+        >
           <ChevronRightIcon />
         </ButtonSm>
         <ButtonSm
