@@ -1,7 +1,22 @@
 const categories = [
   {
     title: "Laptops",
-    menu: ["Dell", "HP", "Lenovo", "Apple", "Asus", "Acer"],
+    menu: [
+      "Dell",
+      "Apple",
+      "HP",
+      "Lenovo",
+      "Asus",
+      "Acer",
+      "Microsoft",
+      "LG",
+      "Razer",
+      "Sony",
+      "MSI",
+      "Toshiba",
+      "Huawei",
+      "Samsung",
+    ],
   },
   {
     title: "Mobiles",

@@ -4,7 +4,7 @@ import FiltersSheet from "./FiltersSheet";
 import GridIcons from "./GridIcons";
 // import categories from "../nav/categories";
 import { getFilters } from "../filters/FiltersServer";
-import ShowItems from "./ShowItems";
+// import ShowItems from "./ShowItems";
 
 export default async function ProductsHeader({ products }) {
   // memoized request

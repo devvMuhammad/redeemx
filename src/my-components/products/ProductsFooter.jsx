@@ -6,8 +6,9 @@ import {
   ChevronsRightIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
 
 function ButtonSm({ children, className, active, ...props }) {
   return (
@@ -30,6 +31,8 @@ export default function ProductsFooter() {
   const BUTTONS_NUM = 3;
   const MAX_NUM = 10;
 
+  const { updateSearchParams } = useQueryParamUpdate();
+
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(1);
   const arr = Array.from({ length: BUTTONS_NUM }).map(
@@ -51,6 +54,10 @@ export default function ProductsFooter() {
     }
   };
 
+  useEffect(() => {
+    updateSearchParams("page", page, false);
+  }, [page]);
+
   return (
     <div className="flex justify-center items-center h-20 border-white">
       <div className="flex gap-2">
@@ -71,7 +78,7 @@ export default function ProductsFooter() {
         >
           <ChevronLeftIcon />
         </ButtonSm>
-        {/* PageBERS */}
+        {/* BUTTONS */}
         {arr.map((num) => (
           <ButtonSm
             key={num}
