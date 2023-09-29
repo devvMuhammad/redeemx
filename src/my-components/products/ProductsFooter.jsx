@@ -6,7 +6,7 @@ import {
   ChevronsRightIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState, useTransition } from "react";
+import { useTransition } from "react";
 import { cn } from "@/lib/utils";
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
 import { useSearchParams } from "next/navigation";
@@ -29,11 +29,18 @@ function ButtonSm({ children, className, active, ...props }) {
 }
 
 export default function ProductsFooter() {
+  const [isPending, startTransition] = useTransition();
   const BUTTONS_NUM = 3;
   const MAX_NUM = 10;
 
   const searchParams = useSearchParams();
   const { updateSearchParams } = useQueryParamUpdate();
+
+  function updatePage(page) {
+    startTransition(() => {
+      updateSearchParams("page", page, false);
+    });
+  }
 
   const page = +searchParams.get("page") || 1;
   // page = 10, then 8, otherwise page - 1 normally
@@ -44,15 +51,15 @@ export default function ProductsFooter() {
     <div className="flex justify-center items-center h-20 border-white">
       <div className="flex gap-2">
         <ButtonSm
-          onClick={() => updateSearchParams("page", 1, false)}
-          disabled={page === 1}
+          onClick={() => updatePage(1)}
+          disabled={page === 1 || isPending}
           className="hidden md:block"
         >
           <ChevronsLeftIcon />
         </ButtonSm>
         <ButtonSm
-          onClick={() => updateSearchParams("page", page - 1, false)}
-          disabled={page <= 2}
+          onClick={() => updatePage(page - 1)}
+          disabled={page <= 1 || isPending}
           className="hidden md:block"
         >
           <ChevronLeftIcon />
@@ -62,7 +69,8 @@ export default function ProductsFooter() {
           <ButtonSm
             key={num}
             active={page === num}
-            onClick={() => updateSearchParams("page", num, false)}
+            disabled={isPending}
+            onClick={() => updatePage(num)}
           >
             {num}
           </ButtonSm>
@@ -70,7 +78,10 @@ export default function ProductsFooter() {
         {/* DOTS */}
 
         {page <= MAX_NUM - BUTTONS_NUM && (
-          <ButtonSm className="text-xl tracking-wide cursor-default">
+          <ButtonSm
+            disabled={isPending}
+            className="text-xl tracking-wide cursor-default"
+          >
             ...
           </ButtonSm>
         )}
@@ -78,22 +89,23 @@ export default function ProductsFooter() {
         {MAX_NUM - page >= BUTTONS_NUM - 1 && (
           <ButtonSm
             className="w-10 text-md"
-            onClick={() => updateSearchParams("page", MAX_NUM, false)}
+            disabled={isPending}
+            onClick={() => updatePage(MAX_NUM)}
           >
             {MAX_NUM}
           </ButtonSm>
         )}
         <ButtonSm
           className="hidden md:block"
-          disabled={page === MAX_NUM}
-          onClick={() => updateSearchParams("page", num - 1, false)}
+          disabled={page === MAX_NUM || isPending}
+          onClick={() => updatePage(page + 1)}
         >
           <ChevronRightIcon />
         </ButtonSm>
         <ButtonSm
           className="hidden md:block"
-          disabled={page === MAX_NUM}
-          onClick={() => updateSearchParams("page", MAX_NUM, false)}
+          disabled={page === MAX_NUM || isPending}
+          onClick={() => updatePage(MAX_NUM)}
         >
           <ChevronsRightIcon />
         </ButtonSm>
