@@ -1,5 +1,5 @@
 import Product from "@/lib/productsSchema";
-import ProductsFooter from "./ProductsFooter";
+import ProductsFooter from "./ProductsFooter-v1";
 import ProductsHeader from "./ProductsHeader";
 import ProductsMain from "./ProductsMain";
 import { connectDB } from "@/lib/connectDB";

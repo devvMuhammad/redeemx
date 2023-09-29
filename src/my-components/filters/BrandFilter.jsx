@@ -4,7 +4,7 @@ import Checkbox from "../ui/Checkbox";
 import React from "react";
 
 export default function BrandFilter({ titledCategory, categories }) {
-  console.log(categories);
+  // console.log(categories);
   return (
     <div className="space-y-2">
       <h1 className="font-bold text-left tracking-wide">Brand</h1>

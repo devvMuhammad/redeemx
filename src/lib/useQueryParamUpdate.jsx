@@ -14,7 +14,7 @@ const createQueryString = (name, value, add = true, searchParams) => {
 const deleteQueryString = (name, searchParams) => {
   const params = new URLSearchParams(searchParams);
   params.delete(name);
-  console.log(params.toString());
+  // console.log(params.toString());
   return params.toString();
 };
 

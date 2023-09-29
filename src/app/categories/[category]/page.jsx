@@ -25,7 +25,7 @@ export default async function Category({ params: { category }, searchParams }) {
       {/* PRODUCTS */}
 
       <Suspense
-        key={[searchParams.brand, searchParams.sort]}
+        key={[searchParams.brand, searchParams.sort, searchParams.page]}
         fallback={<ProductsSkeleton />}
       >
         <Products searchParams={searchParams} />
