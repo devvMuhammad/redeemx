@@ -15,7 +15,6 @@ async function getProducts({ brand, sort, perPage, page }) {
     ? { brand: { $in: brand.split(".") || [brand] } }
     : {};
   let query = Product.find(brandFilter);
-
   // console.log(products);
 
   // SORTING
@@ -24,12 +23,14 @@ async function getProducts({ brand, sort, perPage, page }) {
   query = query.sort({ [sortField]: +value });
 
   // PAGINATION
-  const pageNumber = page || 1;
-  const perPageItems = perPage || 10;
-  query = query.skip(perPage * pageNumber).limit(perPageItems);
+  const pageNumber = +page || 1;
+  const perPageItems = +perPage || 10;
+  console.log(pageNumber, perPageItems);
+  query = query.skip(perPageItems * (pageNumber - 1)).limit(perPageItems);
 
   const products = await query.lean();
-  return products;
+  console.log(products);
+  return { products, length: products.length, total: 10 };
 }
 
 /*
@@ -41,13 +42,13 @@ async function getProducts({ brand, sort, perPage, page }) {
 
 export default async function Products({ searchParams }) {
   const { grid = 4, brand, sort, perPage, page } = searchParams;
-  const products = JSON.parse(
+  const { products, total, length } = JSON.parse(
     JSON.stringify(await getProducts({ brand, sort, page, perPage }))
   );
 
   return (
     <div className="flex flex-col bg-sy-500">
-      <ProductsHeader products={products} />
+      <ProductsHeader length={length} total={total} />
       {/* <Suspense key={brand} fallback={<MainProductsSkeleton />}> */}
       <ProductsMain grid={grid} products={products} />
       {/* </Suspense> */}
