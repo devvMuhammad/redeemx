@@ -30,8 +30,8 @@ function ButtonSm({ children, className, active, ...props }) {
 
 export default function ProductsFooter() {
   const [isPending, startTransition] = useTransition();
-  const BUTTONS_NUM = 3;
   const MAX_NUM = 10;
+  const BUTTONS_NUM = MAX_NUM <= 3 ? MAX_NUM : 3;
 
   const searchParams = useSearchParams();
   const { updateSearchParams } = useQueryParamUpdate();
@@ -77,7 +77,7 @@ export default function ProductsFooter() {
         ))}
         {/* DOTS */}
 
-        {page <= MAX_NUM - BUTTONS_NUM && (
+        {page < MAX_NUM - BUTTONS_NUM && (
           <ButtonSm
             disabled={isPending}
             className="text-xl tracking-wide cursor-default"
