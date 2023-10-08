@@ -9,6 +9,9 @@ export default function Checkbox({ id, queryName, queryValue, ...props }) {
     <ShadCheckbox
       id={id}
       onCheckedChange={(isChecked) => {
+        //on brand check click, reset the page param
+        updateSearchParams("page", 1, false);
+
         // first see if checked pehle se
         if (!isChecked) {
           // dont delete query directly, first check if there is a value already in place, we have to remove that one

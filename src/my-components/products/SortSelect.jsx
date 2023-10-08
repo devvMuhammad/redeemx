@@ -11,7 +11,7 @@ import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
 import { useSearchParams } from "next/navigation";
 export default function SortSelect() {
   const { updateSearchParams } = useQueryParamUpdate();
-  const sort = useSearchParams().get("sort");
+  const sort = useSearchParams().get("sort") || "price.1";
   return (
     <Select
       defaultValue={sort}
