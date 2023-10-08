@@ -8,11 +8,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import { useSearchParams } from "next/navigation";
 export default function SortSelect() {
   const { updateSearchParams } = useQueryParamUpdate();
+  const sort = useSearchParams().get("sort");
   return (
     <Select
-      defaultValue="price.1"
+      defaultValue={sort}
       onValueChange={(value) => updateSearchParams("sort", value, false)}
     >
       <SelectTrigger className="w-[170px]">

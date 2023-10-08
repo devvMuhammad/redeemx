@@ -90,7 +90,7 @@ export default async function Products({ searchParams }) {
       {/* <Suspense key={brand} fallback={<MainProductsSkeleton />}> */}
       <ProductsMain grid={grid} products={products} />
       {/* </Suspense> */}
-      <ProductsFooter />
+      <ProductsFooter total={total}/>
     </div>
   );
 }

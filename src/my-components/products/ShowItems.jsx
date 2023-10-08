@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 
 function ShowItems({ length, total }) {
   const searchParams = useSearchParams();
-  const perPage = +searchParams.get("perPage");
+  const perPage = +searchParams.get("perPage") || 10;
   return (
     <p className="hidden md:block text-lg">
       Showing <strong>{length > perPage ? perPage : length}</strong> of{" "}

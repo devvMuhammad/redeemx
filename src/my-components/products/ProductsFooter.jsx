@@ -28,12 +28,16 @@ function ButtonSm({ children, className, active, ...props }) {
   );
 }
 
-export default function ProductsFooter() {
+export default function ProductsFooter({ total }) {
+  const searchParams = useSearchParams();
+  const perPage = +searchParams.get("perPage") || 10;
+  const page = +searchParams.get("page") || 1;
+
   const [isPending, startTransition] = useTransition();
-  const MAX_NUM = 10;
+
+  const MAX_NUM = total / perPage;
   const BUTTONS_NUM = MAX_NUM <= 3 ? MAX_NUM : 3;
 
-  const searchParams = useSearchParams();
   const { updateSearchParams } = useQueryParamUpdate();
 
   function updatePage(page) {
@@ -42,7 +46,6 @@ export default function ProductsFooter() {
     });
   }
 
-  const page = +searchParams.get("page") || 1;
   // page = 10, then 8, otherwise page - 1 normally
   const count = page >= MAX_NUM ? MAX_NUM - (BUTTONS_NUM - 1) : page - 1 || 1;
   const arr = Array.from({ length: BUTTONS_NUM }, (_, i) => count + i);
@@ -77,7 +80,7 @@ export default function ProductsFooter() {
         ))}
         {/* DOTS */}
 
-        {page < MAX_NUM - BUTTONS_NUM && (
+        {page <= MAX_NUM - BUTTONS_NUM && (
           <ButtonSm
             disabled={isPending}
             className="text-xl tracking-wide cursor-default"
