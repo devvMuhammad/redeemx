@@ -2,12 +2,21 @@
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useCallback } from "react";
 
-const createQueryString = (name, value, add = true, searchParams) => {
+const createQueryString = (
+  name,
+  value,
+  add = true,
+  searchParams,
+  special = false
+) => {
   const params = new URLSearchParams(searchParams);
   const existingParam = params.get(name);
   // if already a param exists, then add to it
   //e.g brand="Apple" --> brand="Apple,HP";
   params.set(name, existingParam && add ? `${existingParam}.${value}` : value);
+  if (special) {
+    params.delete("page");
+  }
   console.log(searchParams.toString());
   return params.toString();
 };
@@ -24,12 +33,13 @@ export default function useQueryParamUpdate() {
   const searchParams = useSearchParams();
 
   const updateQueryParam = useCallback(
-    (paramName, value, add) => {
+    (paramName, value, add, special) => {
       const queryString = createQueryString(
         paramName,
         value,
         add,
-        searchParams
+        searchParams,
+        special
       );
       router.push(pathname + "?" + queryString);
     },
@@ -39,7 +49,7 @@ export default function useQueryParamUpdate() {
   const deleteQueryParam = useCallback(
     (paramName) => {
       const queryString = deleteQueryString(paramName, searchParams);
-      router.push(pathname, "", { scroll: false });
+      router.push(pathname + "?" + queryString);
     },
     [pathname, router, searchParams]
   );
