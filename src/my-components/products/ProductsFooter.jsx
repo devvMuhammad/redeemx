@@ -89,7 +89,7 @@ export default function ProductsFooter({ total }) {
           </ButtonSm>
         )}
         {/* LAST PageBER */}
-        {MAX_NUM - page >= BUTTONS_NUM - 1 && (
+        {MAX_NUM - page > BUTTONS_NUM - 1 && (
           <ButtonSm
             className="w-10 text-md"
             disabled={isPending}

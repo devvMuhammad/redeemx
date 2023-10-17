@@ -34,7 +34,7 @@ export default function Checkbox({ id, queryName, queryValue, pop, ...props }) {
         }
         // otherwise add it normally
 
-        updateSearchParams(queryName, queryValue, false, true);
+        updateSearchParams(queryName, queryValue, true, true);
       }}
     />
   );
