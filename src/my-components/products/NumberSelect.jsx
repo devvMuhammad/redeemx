@@ -12,10 +12,12 @@ import {
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
 
 export default function NumberSelect() {
+  const searchParams = useSearchParams();
   const { updateSearchParams } = useQueryParamUpdate();
+  const number = +searchParams.get("perPage") || 10;
   return (
     <Select
-      defaultValue={10}
+      defaultValue={number}
       onValueChange={(value) => {
         updateSearchParams("perPage", value, false);
       }}
