@@ -9,12 +9,11 @@ export default function FiltersClient({ titledCategory, asSheet, categories }) {
     <div
       className={`${
         !asSheet && "hidden lg:block"
-      } px-3 space-y-8 overflow-y-auto `}
+      } px-3 space-y-4 overflow-y-auto `}
     >
       <PriceFilter />
       <BrandFilter titledCategory={titledCategory} categories={categories} />
       <ReviewsFilter />
-      <Button className="font-bold tracking-wide">Apply Filters</Button>
     </div>
   );
 }

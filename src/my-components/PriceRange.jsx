@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { useState } from "react";
@@ -39,6 +40,14 @@ export default function PriceRange() {
             setPriceRange([priceRange[0], value]);
           }}
         />
+      </div>
+      <div className="w-full flex justify-end">
+        <Button
+          size="sm"
+          className="font-bold tracking-wide right-0 inline-flex"
+        >
+          Apply Price
+        </Button>
       </div>
     </>
   );

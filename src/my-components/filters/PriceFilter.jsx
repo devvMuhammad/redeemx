@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import PriceRange from "../PriceRange";
 
 function PriceFilter() {
