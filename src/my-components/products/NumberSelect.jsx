@@ -1,5 +1,4 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -10,14 +9,14 @@ import {
 } from "@/components/ui/select";
 
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useCustomSearchParams from "@/lib/useCustomSearchParams";
 
 export default function NumberSelect() {
-  const searchParams = useSearchParams();
   const { updateSearchParams } = useQueryParamUpdate();
-  const number = +searchParams.get("perPage") || 10;
+  const { perPage } = useCustomSearchParams();
   return (
     <Select
-      defaultValue={number}
+      defaultValue={perPage}
       onValueChange={(value) => {
         updateSearchParams("perPage", value, false);
       }}

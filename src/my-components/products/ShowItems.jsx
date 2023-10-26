@@ -1,11 +1,8 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import useCustomSearchParams from "@/lib/useCustomSearchParams";
 
 function ShowItems({ length, total }) {
-  const searchParams = useSearchParams();
-  const perPage = +searchParams.get("perPage") || 10;
-  const page = +searchParams.get("page") || 1;
-
+  const { page, perPage } = useCustomSearchParams();
   const start = (page - 1) * perPage + 1; // (1*0)*10 + 1
   const end = page * perPage; // 1*10
   return (

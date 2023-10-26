@@ -1,9 +1,7 @@
 "use client";
 
+import useCustomSearchParams from "@/lib/useCustomSearchParams";
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
-import { createQueryString } from "@/lib/utils";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { useCallback } from "react";
 
 const gridArray = [
   { col: 2, gridCol: "grid-cols-2", length: 4, size: "w-2 h-2" },
@@ -17,7 +15,8 @@ const gridArray = [
 ];
 
 export default function GridIcons() {
-  const { searchParams, updateSearchParams } = useQueryParamUpdate();
+  const { updateSearchParams } = useQueryParamUpdate();
+  const { grid } = useCustomSearchParams();
 
   return (
     <div className="hidden md:flex gap-4 items-center">
@@ -31,8 +30,7 @@ export default function GridIcons() {
             <span
               key={i}
               className={`${size} ${
-                (!searchParams.get("grid") && col === 4) ||
-                col === +searchParams.get("grid")
+                (!grid && col === 4) || col === grid
                   ? "bg-blue-500"
                   : "bg-white"
               } rounded-full bg-white group-hover:bg-gray-500 transition-all duration-200`}

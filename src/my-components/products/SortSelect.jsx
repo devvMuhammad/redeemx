@@ -7,12 +7,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import useCustomSearchParams from "@/lib/useCustomSearchParams";
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
-import { useSearchParams } from "next/navigation";
 export default function SortSelect() {
-  const searchParams = useSearchParams();
   const { updateSearchParams } = useQueryParamUpdate();
-  const sort = searchParams.get("sort") || "price.1";
+  const { sort } = useCustomSearchParams();
   return (
     <Select
       defaultValue={sort}
