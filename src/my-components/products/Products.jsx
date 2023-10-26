@@ -1,8 +1,8 @@
-import Product from "@/lib/productsSchema";
+import Product from "../../../db/productsSchema";
 import ProductsFooter from "./ProductsFooter";
 import ProductsHeader from "./ProductsHeader";
 import ProductsMain from "./ProductsMain";
-import { connectDB } from "@/lib/connectDB";
+import { connectDB } from "../../../db/connectDB";
 // import { Suspense } from "react";
 // import MainProductsSkeleton from "../ui/MainProductsSkeleton";
 
@@ -90,7 +90,7 @@ export default async function Products({ searchParams }) {
       {/* <Suspense key={brand} fallback={<MainProductsSkeleton />}> */}
       <ProductsMain grid={grid} products={products} />
       {/* </Suspense> */}
-      <ProductsFooter total={total}/>
+      <ProductsFooter total={total} />
     </div>
   );
 }

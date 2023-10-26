@@ -1,4 +1,4 @@
-import Product from "@/lib/productsSchema";
+import Product from "../../../../db/productsSchema";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
