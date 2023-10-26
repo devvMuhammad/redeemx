@@ -47,7 +47,12 @@ export default function PriceRange() {
           size="sm"
           className="font-bold tracking-wide right-0 inline-flex"
           onClick={() => {
-            updateSearchParams("price", `${priceRange[0]}.${priceRange[1]}`);
+            updateSearchParams(
+              "price",
+              `${priceRange[0]}-${priceRange[1]}`,
+              false,
+              true
+            );
           }}
         >
           Apply Price
