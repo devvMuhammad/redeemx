@@ -3,8 +3,6 @@ import ProductsFooter from "./ProductsFooter";
 import ProductsHeader from "./ProductsHeader";
 import ProductsMain from "./ProductsMain";
 import { connectDB } from "../../../db/connectDB";
-// import { Suspense } from "react";
-// import MainProductsSkeleton from "../ui/MainProductsSkeleton";
 
 async function getProductsAgg({ brand, sort, perPage, page, price }) {
   // brand = Apple.Dell.HP
