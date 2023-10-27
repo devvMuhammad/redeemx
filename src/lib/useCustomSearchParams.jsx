@@ -9,6 +9,8 @@ export default function useCustomSearchParams() {
 
   const sort = searchParams.get("sort") || "price.1";
   const grid = +searchParams.get("grid") || 4;
+  const brand = searchParams.get("brand");
+  const brands = brand?.split(".") || [brand];
 
-  return { page, sort, perPage, grid };
+  return { page, sort, perPage, grid, brands };
 }
