@@ -1,8 +1,9 @@
 import FiltersClient from "./FiltersClient";
 
 export async function getFilters() {
-  // date needed for filters:
+  // data needed for filters: number of items of each category, maximum and minimum price
   const response = await fetch("http://localhost:3000/api/filters");
+  // const []
   return response.json();
 }
 export default async function FiltersServer({ titledCategory }) {

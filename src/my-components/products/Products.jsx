@@ -54,12 +54,18 @@ export default async function Products({ searchParams }) {
     perPage,
     price,
   });
-
+  console.log(total);
   return (
     <div className="flex flex-col bg-sy-500">
       <ProductsHeader length={length} total={total} />
-      <ProductsMain grid={grid} products={products} />
-      <ProductsFooter total={total} />
+      {length ? (
+        <ProductsMain grid={grid} products={products} />
+      ) : (
+        <div className="h-[60vh] flex items-center justify-center text-center text-xl md:text-3xl font-bold tracking-wider">
+          No items shown!
+        </div>
+      )}
+      <ProductsFooter total={total || 1} />
     </div>
   );
 }

@@ -36,6 +36,7 @@ export default function ProductsFooter({ total }) {
   const [isPending, startTransition] = useTransition();
 
   const MAX_NUM = Math.ceil(total / perPage);
+  console.log(MAX_NUM, total);
   const BUTTONS_NUM = MAX_NUM <= 3 ? MAX_NUM : 3;
 
   const { updateSearchParams } = useQueryParamUpdate();
