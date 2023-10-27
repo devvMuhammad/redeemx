@@ -54,7 +54,6 @@ export default async function Products({ searchParams }) {
     perPage,
     price,
   });
-  console.log(total);
   return (
     <div className="flex flex-col bg-sy-500">
       <ProductsHeader length={length} total={total} />
