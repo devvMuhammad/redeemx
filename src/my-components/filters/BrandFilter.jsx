@@ -3,20 +3,23 @@
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
 import Checkbox from "../ui/Checkbox";
 import React from "react";
+import useCustomSearchParams from "@/lib/useCustomSearchParams";
 
 export default function BrandFilter({ titledCategory, categories }) {
   // console.log(categories);
   const { deleteSearchParams } = useQueryParamUpdate();
+  const { brands } = useCustomSearchParams();
   return (
     <div className="space-y-2">
       <h1 className="font-bold text-left tracking-wide">Brand</h1>
       {/* CHECKBOXES */}
       {categories
         .find((cat) => cat.title === titledCategory)
-        ?.menu.map((brand) => (
+        ?.menu.map((brand, i) => (
           <div key={brand} className="flex items-center space-x-2 pl-4">
             <Checkbox
               id={brand}
+              checked={brands.includes(brand)}
               queryName="brand"
               queryValue={brand}
               onClick={() => deleteSearchParams("page")}
