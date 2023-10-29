@@ -24,8 +24,7 @@ export async function getFilters() {
 }
 export default async function FiltersServer({ titledCategory }) {
   const brands = await getFilters();
-  // const brands = await
-  console.log(brands);
+
   return (
     <FiltersClient
       brands={brands}
