@@ -1,162 +1,82 @@
 [
   {
-    "id": 31,
-    "name": "MSI Prestige 15 - MSI, Intel Core i7, 16GB RAM, 512GB SSD",
-    "price": 1299.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_31.jpg",
-    "brand": "MSI"
-  },
-  {
-    "id": 32,
-    "name": "LG Gram 15 - LG, Intel Core i7, 16GB RAM, 512GB SSD",
-    "price": 1399.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_32.jpg",
-    "brand": "LG"
-  },
-  {
-    "id": 33,
-    "name": "Acer Chromebook 14 - Acer, Intel Celeron, 4GB RAM, 64GB eMMC",
-    "price": 349.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_33.jpg",
-    "brand": "Acer"
-  },
-  {
-    "id": 34,
-    "name": "Lenovo IdeaPad 3 - Lenovo, AMD Ryzen 5, 8GB RAM, 256GB SSD",
-    "price": 599.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_34.jpg",
-    "brand": "Lenovo"
-  },
-  {
-    "id": 35,
-    "name": "Dell Inspiron 15 - Dell, Intel Core i5, 8GB RAM, 256GB SSD",
-    "price": 799.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_35.jpg",
-    "brand": "Dell"
-  },
-  {
-    "id": 36,
-    "name": "Asus ZenBook 14 - Asus, AMD Ryzen 7, 16GB RAM, 512GB SSD",
-    "price": 999.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_36.jpg",
-    "brand": "Asus"
-  },
-  {
-    "id": 37,
-    "name": "HP Pavilion 15 - HP, Intel Core i3, 8GB RAM, 128GB SSD",
-    "price": 499.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_37.jpg",
-    "brand": "HP"
-  },
-  {
-    "id": 38,
-    "name": "Sony VAIO S - Sony, Intel Core i5, 8GB RAM, 256GB SSD",
+    "id": 51,
+    "name": "Dell Inspiron 13 - Dell, Intel Core i5, 8GB RAM, 256GB SSD",
     "price": 899.99,
     "discount": null,
-    "imageUrl": "url_to_product_image_38.jpg",
-    "brand": "Sony"
-  },
-  {
-    "id": 39,
-    "name": "Apple MacBook Pro 16 - Apple, Intel Core i9, 32GB RAM, 1TB SSD",
-    "price": 2499.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_39.jpg",
-    "brand": "Apple"
-  },
-  {
-    "id": 40,
-    "name": "Razer Blade 17 - Razer, Intel Core i9, 32GB RAM, 1TB SSD",
-    "price": 2999.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_40.jpg",
-    "brand": "Razer"
-  },
-  {
-    "id": 41,
-    "name": "Microsoft Surface Laptop Go - Microsoft, Intel Core i5, 8GB RAM, 256GB SSD",
-    "price": 799.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_41.jpg",
-    "brand": "Microsoft"
-  },
-  {
-    "id": 42,
-    "name": "Toshiba Satellite Pro - Toshiba, Intel Pentium, 4GB RAM, 128GB SSD",
-    "price": 449.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_42.jpg",
-    "brand": "Toshiba"
-  },
-  {
-    "id": 43,
-    "name": "Huawei MateBook D - Huawei, AMD Ryzen 5, 8GB RAM, 512GB SSD",
-    "price": 799.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_43.jpg",
-    "brand": "Huawei"
-  },
-  {
-    "id": 44,
-    "name": "Samsung Galaxy Book S - Samsung, Intel Core i5, 8GB RAM, 256GB SSD",
-    "price": 1199.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_44.jpg",
-    "brand": "Samsung"
-  },
-  {
-    "id": 45,
-    "name": "Acer Nitro 5 - Acer, AMD Ryzen 7, 16GB RAM, 512GB SSD",
-    "price": 1099.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_45.jpg",
-    "brand": "Acer"
-  },
-  {
-    "id": 46,
-    "name": "Dell XPS 15 - Dell, Intel Core i9, 32GB RAM, 1TB SSD",
-    "price": 2499.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_46.jpg",
+    "imageUrl": "url_to_product_image_51.jpg",
     "brand": "Dell"
   },
   {
-    "id": 47,
-    "name": "Asus ROG Strix G15 - Asus, AMD Ryzen 9, 32GB RAM, 1TB SSD",
-    "price": 1799.99,
+    "id": 52,
+    "name": "Dell XPS 17 - Dell, Intel Core i9, 32GB RAM, 1TB SSD",
+    "price": 2699.99,
     "discount": null,
-    "imageUrl": "url_to_product_image_47.jpg",
-    "brand": "Asus"
+    "imageUrl": "url_to_product_image_52.jpg",
+    "brand": "Dell"
   },
   {
-    "id": 48,
-    "name": "HP Omen 15 - HP, Intel Core i7, 16GB RAM, 512GB SSD",
-    "price": 1499.99,
+    "id": 53,
+    "name": "Dell Vostro 15 - Dell, Intel Core i7, 16GB RAM, 512GB SSD",
+    "price": 1199.99,
     "discount": null,
-    "imageUrl": "url_to_product_image_48.jpg",
-    "brand": "HP"
+    "imageUrl": "url_to_product_image_53.jpg",
+    "brand": "Dell"
   },
   {
-    "id": 49,
-    "name": "Lenovo ThinkPad T14 - Lenovo, Intel Core i7, 16GB RAM, 512GB SSD",
-    "price": 1399.99,
-    "discount": null,
-    "imageUrl": "url_to_product_image_49.jpg",
-    "brand": "Lenovo"
-  },
-  {
-    "id": 50,
-    "name": "Alienware Area-51m - Dell, Intel Core i9, 64GB RAM, 2TB SSD",
+    "id": 54,
+    "name": "Dell Precision 5550 - Dell, Intel Xeon, 64GB RAM, 1TB SSD",
     "price": 3499.99,
     "discount": null,
-    "imageUrl": "url_to_product_image_50.jpg",
+    "imageUrl": "url_to_product_image_54.jpg",
+    "brand": "Dell"
+  },
+  {
+    "id": 55,
+    "name": "Dell Alienware m17 - Dell, Intel Core i7, 16GB RAM, 1TB SSD",
+    "price": 1999.99,
+    "discount": null,
+    "imageUrl": "url_to_product_image_55.jpg",
+    "brand": "Dell"
+  },
+  {
+    "id": 56,
+    "name": "Dell Latitude 15 - Dell, Intel Core i5, 8GB RAM, 256GB SSD",
+    "price": 899.99,
+    "discount": null,
+    "imageUrl": "url_to_product_image_56.jpg",
+    "brand": "Dell"
+  },
+  {
+    "id": 57,
+    "name": "Dell XPS 14 - Dell, Intel Core i7, 16GB RAM, 512GB SSD",
+    "price": 1399.99,
+    "discount": null,
+    "imageUrl": "url_to_product_image_57.jpg",
+    "brand": "Dell"
+  },
+  {
+    "id": 58,
+    "name": "Dell G5 Gaming Laptop - Dell, Intel Core i7, 16GB RAM, 512GB SSD",
+    "price": 1499.99,
+    "discount": null,
+    "imageUrl": "url_to_product_image_58.jpg",
+    "brand": "Dell"
+  },
+  {
+    "id": 59,
+    "name": "Dell Inspiron 17 - Dell, AMD Ryzen 5, 8GB RAM, 256GB SSD",
+    "price": 899.99,
+    "discount": null,
+    "imageUrl": "url_to_product_image_59.jpg",
+    "brand": "Dell"
+  },
+  {
+    "id": 60,
+    "name": "Dell Vostro 14 - Dell, Intel Core i5, 8GB RAM, 256GB SSD",
+    "price": 799.99,
+    "discount": null,
+    "imageUrl": "url_to_product_image_60.jpg",
     "brand": "Dell"
   }
 ]

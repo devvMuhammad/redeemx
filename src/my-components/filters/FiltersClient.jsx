@@ -3,8 +3,8 @@ import BrandFilter from "./BrandFilter";
 import PriceFilter from "./PriceFilter";
 import ReviewsFilter from "./ReviewsFilter";
 
-export default function FiltersClient({ titledCategory, asSheet, categories }) {
-  // const { data: categories } = await getFilters();
+export default function FiltersClient({ titledCategory, asSheet, brands }) {
+  // const { data: brands } = await getFilters();
   return (
     <div
       className={`${
@@ -12,7 +12,7 @@ export default function FiltersClient({ titledCategory, asSheet, categories }) {
       } px-3 space-y-4 overflow-y-auto `}
     >
       <PriceFilter />
-      <BrandFilter titledCategory={titledCategory} categories={categories} />
+      <BrandFilter titledCategory={titledCategory} brandsList={brands} />
       <ReviewsFilter />
     </div>
   );
