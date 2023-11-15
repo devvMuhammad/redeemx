@@ -14,7 +14,7 @@ export default function useCustomSearchParams() {
   const price = searchParams
     .get("price")
     ?.split("-")
-    .map((elm) => Number(elm));
+    .map((elm) => Number(elm)) || [0, 10000];
 
   return { page, sort, perPage, grid, brands, price };
 }

@@ -9,10 +9,7 @@ export default function PriceRange() {
   const { updateSearchParams } = useQueryParamUpdate();
   const { price } = useCustomSearchParams();
   console.log(price);
-  const [priceRange, setPriceRange] = useState([
-    price[0] || 0,
-    price[1] || 10000,
-  ]);
+  const [priceRange, setPriceRange] = useState([price[0], price[1]]);
   return (
     <>
       <Slider
