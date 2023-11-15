@@ -23,7 +23,6 @@ export default async function Category({ params: { category }, searchParams }) {
       </Suspense>
 
       {/* PRODUCTS */}
-
       <Suspense
         key={[
           searchParams.brand,
