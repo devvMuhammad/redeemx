@@ -4,7 +4,6 @@ import ResetButton from "./ResetButton";
 import ReviewsFilter from "./ReviewsFilter";
 
 export default function FiltersClient({ titledCategory, asSheet, brands }) {
-  // const { data: brands } = await getFilters();
   return (
     <div
       className={`${
