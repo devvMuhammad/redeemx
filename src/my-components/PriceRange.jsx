@@ -2,16 +2,22 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
+import useCustomSearchParams from "@/lib/useCustomSearchParams";
 import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
 import { useState } from "react";
 export default function PriceRange() {
   const { updateSearchParams } = useQueryParamUpdate();
-  const [priceRange, setPriceRange] = useState([10, 200]);
+  const { price } = useCustomSearchParams();
+  console.log(price);
+  const [priceRange, setPriceRange] = useState([
+    price[0] || 0,
+    price[1] || 10000,
+  ]);
   return (
     <>
       <Slider
-        max={1000}
-        step={1}
+        max={10000}
+        step={100}
         value={priceRange}
         onValueChange={(value) => setPriceRange(value)}
       />

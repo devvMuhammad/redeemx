@@ -1,10 +1,12 @@
+import { cache } from "react";
 import Product from "../../../db/productsSchema";
 import ProductsFooter from "./ProductsFooter";
 import ProductsHeader from "./ProductsHeader";
 import ProductsMain from "./ProductsMain";
+
 import { connectDB } from "../../../db/connectDB";
 
-async function getProductsAgg({ brand, sort, perPage, page, price }) {
+const getProductsAgg = cache(async ({ brand, sort, perPage, page, price }) => {
   // brand = Apple.Dell.HP
   connectDB();
 
@@ -42,7 +44,7 @@ async function getProductsAgg({ brand, sort, perPage, page, price }) {
   ]);
 
   return { products, total, length: products.length };
-}
+});
 
 export default async function Products({ searchParams }) {
   const { grid = 4, brand, sort, perPage, page, price } = searchParams;

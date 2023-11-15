@@ -11,6 +11,10 @@ export default function useCustomSearchParams() {
   const grid = +searchParams.get("grid") || 4;
   const brand = searchParams.get("brand");
   const brands = brand?.split(".") || [brand];
+  const price = searchParams
+    .get("price")
+    ?.split("-")
+    .map((elm) => Number(elm));
 
-  return { page, sort, perPage, grid, brands };
+  return { page, sort, perPage, grid, brands, price };
 }
