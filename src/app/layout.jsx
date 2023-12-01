@@ -1,6 +1,7 @@
 import NavBar from "@/my-components/nav/NavBar";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import Providers from "@/store/Provider";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 // const inter = Inter({ weight: "400", subsets: ["latin"] });
@@ -14,8 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <body className={`${poppins.className} m-0 overflow-y-auto`}>
-        <NavBar />
-        {children}
+        <Providers>
+          <NavBar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

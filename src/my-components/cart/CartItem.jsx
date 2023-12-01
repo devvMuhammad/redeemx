@@ -1,15 +1,15 @@
 import { Trash2Icon } from "lucide-react";
 
-export default function CartItem() {
+export default function CartItem({
+  item: { name, brand, price, id, totalPrice, quantity },
+}) {
   return (
     <div className="grid grid-rows-[auto_1fr] grid-cols-[75px_1fr] gap-x-4 gap-y-0 border-b-2 border-solid border-gray-500 pb-2 last:border-b-0">
       <div className="bg-purple-500 aspect-square"></div>
       <div className="flex flex-col">
         {/* TYPE AND PRODUCT NAME */}
         <p className="text-md uppercase text-gray-500">Gift Card</p>
-        <p className=" text-sm font-bold ">
-          Xbox Live Gold Membership for 12 Months
-        </p>
+        <p className=" text-sm font-bold ">{name}</p>
         {/* ID AND BRAND */}
         <div className="flex justify-between  w-full mt-4">
           <div className="flex gap-2 text-sm">
@@ -18,7 +18,7 @@ export default function CartItem() {
           </div>
           <div className="flex gap-2 text-sm">
             <p className="text-gray-500">Brand:</p>
-            <p className="font-bold">PlayStation</p>
+            <p className="font-bold">{brand}</p>
           </div>
           {/* CART BUTTONS */}
         </div>
@@ -41,8 +41,10 @@ export default function CartItem() {
           </span>
         </div>
         <div className="flex items-center gap-2 text-[1rem]">
-          <p className="text-gray-400 font-thin">10 x $1199</p>
-          <p className="font-bold">= $11990</p>
+          <p className="text-gray-400 font-thin">
+            {quantity} x ${price}
+          </p>
+          <p className="font-bold">= ${totalPrice}</p>
         </div>
       </div>
     </div>

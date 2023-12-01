@@ -17,20 +17,25 @@ const initialState = {
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: {
+    items: [],
+    totalQuantity: 0,
+  },
   reducers: {
     addItem: (state, action) => {
       // payload = item to add
       const item = state.items.find((item) => item.id === action.payload.id);
       if (!item)
-        return state.items.push({
+        state.items.push({
           ...action.payload,
           quantity: 1,
           totalPrice: action.payload.price,
         });
       // else increment quantity by 1 and update totalPrice
-      item.quantity++;
-      item.totalPrice = item.quantity * item.price;
+      else {
+        item.quantity++;
+        item.totalPrice = item.quantity * item.price;
+      }
     },
   },
 });

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import AddToCart from "./AddToCart";
 
 export default function Product({ product: { name, discount, price }, grid }) {
   return (
@@ -24,9 +24,7 @@ export default function Product({ product: { name, discount, price }, grid }) {
         </div>
 
         {/* Agar variant huwa to add kardena */}
-        <Button className="font-bold tracking-wide" size="sm">
-          Add to Cart
-        </Button>
+        <AddToCart product={{ name, discount, price }} />
       </div>
     </div>
   );
