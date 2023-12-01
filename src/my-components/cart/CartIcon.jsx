@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import SideDrawer from "./SideDrawer";
+import SideDrawer from "../ui/SideDrawer";
 import Link from "next/link";
 import Cart from "./Cart";
 

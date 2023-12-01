@@ -1,7 +1,7 @@
 import React from "react";
 import Hamburger from "../ui/Hamburger";
 import NavMenu from "./NavMenu";
-import CartIcon from "../ui/CartIcon";
+import CartIcon from "../cart/CartIcon";
 import Link from "next/link";
 
 function NavBar() {
