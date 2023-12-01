@@ -1,5 +1,5 @@
 "use client";
-import useCustomSearchParams from "@/lib/useCustomSearchParams";
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 
 function ShowItems({ length, total }) {
   const { page, perPage } = useCustomSearchParams();

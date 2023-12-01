@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
 import { cn } from "@/lib/utils";
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 import { useSearchParams } from "next/navigation";
 
 function ButtonSm({ children, className, active, ...props }) {

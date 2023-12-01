@@ -1,5 +1,5 @@
 import { Checkbox as ShadCheckbox } from "@/components/ui/checkbox";
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 

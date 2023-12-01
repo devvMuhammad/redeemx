@@ -1,9 +1,9 @@
 "use client";
 
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 import Checkbox from "../ui/Checkbox";
 import React from "react";
-import useCustomSearchParams from "@/lib/useCustomSearchParams";
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 
 export default function BrandFilter({ titledCategory, brandsList }) {
   // console.log(brands);

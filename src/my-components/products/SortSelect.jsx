@@ -7,8 +7,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import useCustomSearchParams from "@/lib/useCustomSearchParams";
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 export default function SortSelect() {
   const { updateSearchParams } = useQueryParamUpdate();
   const { sort } = useCustomSearchParams();

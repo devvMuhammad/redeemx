@@ -1,7 +1,7 @@
 "use client";
 
-import useCustomSearchParams from "@/lib/useCustomSearchParams";
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 
 const gridArray = [
   { col: 2, gridCol: "grid-cols-2", length: 4, size: "w-2 h-2" },

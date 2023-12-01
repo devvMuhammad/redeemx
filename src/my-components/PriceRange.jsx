@@ -2,8 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
-import useCustomSearchParams from "@/lib/useCustomSearchParams";
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 import { useState } from "react";
 export default function PriceRange() {
   const { updateSearchParams } = useQueryParamUpdate();

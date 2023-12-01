@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 
 export default function ResetButton() {
   const { resetSearchParams } = useQueryParamUpdate();

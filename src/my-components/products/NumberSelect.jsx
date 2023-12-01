@@ -8,8 +8,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import useQueryParamUpdate from "@/lib/useQueryParamUpdate";
-import useCustomSearchParams from "@/lib/useCustomSearchParams";
+import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 
 export default function NumberSelect() {
   const { updateSearchParams } = useQueryParamUpdate();
