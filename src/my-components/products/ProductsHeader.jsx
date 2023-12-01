@@ -3,7 +3,7 @@ import SortSelect from "./SortSelect";
 import FiltersSheet from "./FiltersSheet";
 import GridIcons from "./GridIcons";
 // import categories from "../nav/categories";
-import { getFilters } from "../filters/FiltersServer";
+import { getFilters } from "../../../db/gets/getFilters";
 import ShowItems from "./ShowItems";
 // import ShowItems from "./ShowItems";
 
