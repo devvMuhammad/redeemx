@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import SideDrawer from "../ui/SideDrawer";
-import Link from "next/link";
 import Cart from "./Cart";
+import { useSelector } from "react-redux";
 
 function CartIcon() {
+  const totalProducts = useSelector((state) => state.cart.totalQuantity);
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
@@ -38,6 +39,11 @@ function CartIcon() {
           <circle cx="19" cy="21" r="1"></circle>
           <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
         </svg>
+        {totalProducts > 0 && (
+          <div className="h-5 w-5 flex items-center justify-center bg-white text-black text-sm absolute right-[-10px] bottom-[-5px] rounded-full border-2 border-black border-solid">
+            {totalProducts}
+          </div>
+        )}
       </button>
     </>
   );

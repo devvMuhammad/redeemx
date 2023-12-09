@@ -29,9 +29,7 @@ export default function CartItem({
             <button className="border-r-2 border-solid border-white px-3 text-lg font-bold hover:bg-white hover:text-black cursor-pointer">
               -
             </button>
-            <span className="border-r-2 border-solid border-white px-3 text-lg font-bold ">
-              100
-            </span>
+
             <button className=" px-3 text-lg font-bold  hover:bg-white hover:text-black cursor-pointer">
               +
             </button>
@@ -41,7 +39,7 @@ export default function CartItem({
           </span>
         </div>
         <div className="flex items-center gap-2 text-[1rem]">
-          <p className="text-gray-400 font-thin">
+          <p>
             {quantity} x ${price}
           </p>
           <p className="font-bold">= ${totalPrice}</p>
