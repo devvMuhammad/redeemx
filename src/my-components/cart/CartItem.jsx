@@ -33,12 +33,7 @@ export default function CartItem({
               onClick={() =>
                 dispatch(
                   removeItem({
-                    name,
-                    brand,
-                    price,
                     id,
-                    totalPrice,
-                    quantity,
                   })
                 )
               }
@@ -69,12 +64,7 @@ export default function CartItem({
             onClick={() =>
               dispatch(
                 deleteItem({
-                  name,
-                  brand,
-                  price,
                   id,
-                  totalPrice,
-                  quantity,
                 })
               )
             }
