@@ -1,4 +1,4 @@
-import { addItem, removeItem } from "@/store/cart/cart";
+import { addItem, deleteItem, removeItem } from "@/store/cart/cart";
 import { Trash2Icon } from "lucide-react";
 import { useDispatch } from "react-redux";
 
@@ -65,7 +65,21 @@ export default function CartItem({
               +
             </button>
           </div>
-          <span className="border-2 border-solid border-white p-[3px] rounded-[0.25rem] hover:text-white hover:border-red-500 hover:bg-red-500 cursor-pointer">
+          <span
+            onClick={() =>
+              dispatch(
+                deleteItem({
+                  name,
+                  brand,
+                  price,
+                  id,
+                  totalPrice,
+                  quantity,
+                })
+              )
+            }
+            className="border-2 border-solid border-white p-[3px] rounded-[0.25rem] hover:text-white hover:border-red-500 hover:bg-red-500 cursor-pointer"
+          >
             <Trash2Icon />
           </span>
         </div>

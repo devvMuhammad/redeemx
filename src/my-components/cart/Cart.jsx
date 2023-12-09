@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function Cart() {
   const items = useSelector((state) => state.cart.items);
+  const totalCost = items.reduce((acc, elm) => acc + elm.totalPrice, 0);
   console.log(items);
   return (
     <Container>
@@ -19,7 +20,7 @@ export default function Cart() {
       ) : (
         <EmptyCart />
       )}
-      <CartFooter />
+      {totalCost !== 0 && <CartFooter totalCost={totalCost} />}
     </Container>
   );
 }
@@ -49,16 +50,18 @@ function CartHeader() {
   );
 }
 
-function CartFooter() {
+function CartFooter({ totalCost }) {
+  // note that toFixed returns a string so must convert it to a number before you perform any operations on it
+  const tax = totalCost * 0.05;
   return (
     <ul className="flex flex-col gap-1 pt-2 border-t-2 border-solid border-white">
       <div className="grid grid-cols-2">
         <p className="font-bold text-md">Current Cost</p>
-        <span className="font-thin">$100.312</span>
+        <span className="font-thin">${totalCost.toFixed(2)}</span>
       </div>
       <div className="grid grid-cols-2">
         <p className="font-bold text-md">Tax (5%)</p>
-        <span className="font-thin">$20.624</span>
+        <span className="font-thin">${tax.toFixed(2)}</span>
       </div>
       <div className="grid grid-cols-2">
         <p className="font-bold text-md">Shipping</p>
@@ -67,7 +70,7 @@ function CartFooter() {
       <hr />
       <div className="grid grid-cols-2 mt-3">
         <p className="font-bold text-md">Total Cost</p>
-        <span className="font-thin">$120.936</span>
+        <span className="font-thin">${(totalCost + tax).toFixed(2)}</span>
       </div>
     </ul>
   );

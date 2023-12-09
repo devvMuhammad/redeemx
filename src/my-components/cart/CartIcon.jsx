@@ -10,7 +10,7 @@ function CartIcon() {
     <>
       <Sheet>
         <SheetTrigger>
-          <button className="inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-transparent shadow-sm hover:bg-white hover:text-black hover:text-accent-foreground h-9 w-9 relative">
+          <div className="inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-transparent shadow-sm hover:bg-white hover:text-black hover:text-accent-foreground h-9 w-9 relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -33,7 +33,7 @@ function CartIcon() {
                 {totalProducts}
               </div>
             )}
-          </button>
+          </div>
         </SheetTrigger>
         <SheetContent className="p-0">
           <Cart />
