@@ -1,8 +1,11 @@
+import { addItem, removeItem } from "@/store/cart/cart";
 import { Trash2Icon } from "lucide-react";
+import { useDispatch } from "react-redux";
 
 export default function CartItem({
   item: { name, brand, price, id, totalPrice, quantity },
 }) {
+  const dispatch = useDispatch();
   return (
     <div className="grid grid-rows-[auto_1fr] grid-cols-[75px_1fr] gap-x-4 gap-y-0 border-b-2 border-solid border-gray-500 pb-2 last:border-b-0">
       <div className="bg-purple-500 aspect-square"></div>
@@ -26,11 +29,39 @@ export default function CartItem({
       <div className="col-span-2 flex justify-between items-center mt-4">
         <div className="flex gap-2">
           <div className="flex rounded-[0.25rem] border-2 border-solid border-white">
-            <button className="border-r-2 border-solid border-white px-3 text-lg font-bold hover:bg-white hover:text-black cursor-pointer">
+            <button
+              onClick={() =>
+                dispatch(
+                  removeItem({
+                    name,
+                    brand,
+                    price,
+                    id,
+                    totalPrice,
+                    quantity,
+                  })
+                )
+              }
+              className="border-r-2 border-solid border-white px-3 text-lg font-bold hover:bg-white hover:text-black cursor-pointer"
+            >
               -
             </button>
 
-            <button className=" px-3 text-lg font-bold  hover:bg-white hover:text-black cursor-pointer">
+            <button
+              onClick={() =>
+                dispatch(
+                  addItem({
+                    name,
+                    brand,
+                    price,
+                    id,
+                    totalPrice,
+                    quantity,
+                  })
+                )
+              }
+              className=" px-3 text-lg font-bold  hover:bg-white hover:text-black cursor-pointer"
+            >
               +
             </button>
           </div>
@@ -42,7 +73,7 @@ export default function CartItem({
           <p>
             {quantity} x ${price}
           </p>
-          <p className="font-bold">= ${totalPrice}</p>
+          <p className="font-bold">= ${totalPrice.toFixed(2)}</p>
         </div>
       </div>
     </div>
