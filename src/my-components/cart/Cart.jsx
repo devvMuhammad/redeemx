@@ -3,11 +3,11 @@ import Link from "next/link";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 
-export default function Cart({ showSidebar }) {
+export default function Cart() {
   const items = useSelector((state) => state.cart.items);
   console.log(items);
   return (
-    <Container showSidebar={showSidebar}>
+    <Container>
       <CartHeader />
 
       {items?.length > 0 ? (
@@ -24,15 +24,9 @@ export default function Cart({ showSidebar }) {
   );
 }
 
-function Container({ children, showSidebar }) {
+function Container({ children }) {
   return (
-    <div
-      className={`h-full flex flex-col justify-between p-4 text-white ${
-        showSidebar
-          ? "transition-opacity duration-400 ease-linear opacity-100"
-          : "opacity-0"
-      }`}
-    >
+    <div className="h-full flex flex-col justify-between p-4 text-white">
       {children}
     </div>
   );
