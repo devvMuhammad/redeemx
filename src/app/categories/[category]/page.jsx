@@ -6,11 +6,11 @@ import FiltersSkeleton from "@/my-components/ui/FiltersSkeletion";
 import ProductsSkeleton from "@/my-components/ui/ProductsSkeletion";
 import { Suspense } from "react";
 
-export async function generateStaticParams() {
-  return categories.map((category) => ({
-    category: toCamelCase(category.title),
-  }));
-}
+// export async function generateStaticParams() {
+//   return categories.map((category) => ({
+//     category: toCamelCase(category.title),
+//   }));
+// }
 
 export default async function Category({ params: { category }, searchParams }) {
   const titledCategory = toTitleCase(category);
