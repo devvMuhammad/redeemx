@@ -4,7 +4,7 @@ import NavMenu from "./NavMenu";
 import CartIcon from "../cart/CartIcon";
 import Link from "next/link";
 import UserProfile from "./UserProfile";
-import SearchIcon from "./SearchIcon";
+import SearchBar from "./SearchIcon";
 
 function NavBar() {
   return (
@@ -17,7 +17,7 @@ function NavBar() {
         <NavMenu />
       </div>
       <div className="flex items-center gap-2">
-        <SearchIcon />
+        <SearchBar />
         <CartIcon />
         <UserProfile />
       </div>

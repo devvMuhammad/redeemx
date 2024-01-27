@@ -13,7 +13,7 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 
-export default function SearchIcon() {
+export default function SearchBar() {
   const [open, setOpen] = useState(false);
   return (
     <div className="border rounded-xl p-1 cursor-pointer hover:bg-white hover:text-black">
