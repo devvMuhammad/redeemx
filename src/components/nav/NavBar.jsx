@@ -3,6 +3,8 @@ import Hamburger from "../ui/Hamburger";
 import NavMenu from "./NavMenu";
 import CartIcon from "../cart/CartIcon";
 import Link from "next/link";
+import UserProfile from "./UserProfile";
+import SearchIcon from "./SearchIcon";
 
 function NavBar() {
   return (
@@ -14,7 +16,11 @@ function NavBar() {
         </Link>
         <NavMenu />
       </div>
-      <CartIcon />
+      <div className="flex items-center gap-2">
+        <SearchIcon />
+        <CartIcon />
+        <UserProfile />
+      </div>
     </header>
   );
 }
