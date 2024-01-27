@@ -1,7 +1,7 @@
 "use client";
 
 import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
-import Checkbox from "../ui/ui/Checkbox";
+import Checkbox from "../ui/CustomCheckbox";
 import React from "react";
 import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 
