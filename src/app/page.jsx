@@ -1,6 +1,6 @@
-import HomePage from "@/my-components/HomePage";
-import Categories from "@/my-components/Categories";
-import Featured from "@/my-components/featured/Featured";
+import HomePage from "@/components/HomePage";
+import Categories from "@/components/Categories";
+import Featured from "@/components/featured/Featured";
 export default function Home() {
   return (
     <main className="grid gap-20">

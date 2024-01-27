@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SlidersHorizontalIcon } from "lucide-react";
 import { toTitleCase } from "@/lib/utils";
-import FiltersClient from "@/my-components/filters/FiltersClient";
+import FiltersClient from "@/components/filters/FiltersClient";
 
 function FiltersSheet({ brands }) {
   const { category } = useParams();

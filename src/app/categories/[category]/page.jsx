@@ -1,9 +1,9 @@
 import { toCamelCase, toTitleCase } from "@/lib/utils";
-import FiltersServer from "@/my-components/filters/FiltersServer";
-import categories from "@/my-components/nav/categories";
-import Products from "@/my-components/products/Products";
-import FiltersSkeleton from "@/my-components/ui/FiltersSkeletion";
-import ProductsSkeleton from "@/my-components/ui/ProductsSkeletion";
+import FiltersServer from "@/components/filters/FiltersServer";
+import categories from "@/components/nav/categories";
+import Products from "@/components/products/Products";
+import FiltersSkeleton from "@/components/ui/FiltersSkeletion";
+import ProductsSkeleton from "@/components/ui/ProductsSkeletion";
 import { Suspense } from "react";
 
 // export async function generateStaticParams() {

@@ -15,5 +15,6 @@ export async function connectDB() {
   // make the connection and cache it
   const requestURL = `mongodb+srv://muhammadaljoufi:${process.env.DB_PASSWORD}@cluster0.fhnovob.mongodb.net/app`;
   cached = await mongoose.connect(requestURL);
+  if (cached) console.log("A connection was established to the databse");
   return cached;
 }
