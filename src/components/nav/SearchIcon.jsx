@@ -44,8 +44,19 @@ export default function SearchBar() {
     }
     setLoading(true);
     try {
-      filterProducts(debouncedQuery)
+      // filterProducts(debouncedQuery)
+      fetch("http://localhost:3000/api/search", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          searchString: debouncedQuery,
+        }),
+      })
+        .then((res) => res.json())
         .then((data) => {
+          console.log("The data from the api is", data);
           console.log("updating the products correctly");
           setProducts(data);
         })
