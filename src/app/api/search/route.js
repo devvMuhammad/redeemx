@@ -1,8 +1,10 @@
+import { NextResponse } from "next/server";
 import { connectDB } from "../../../../db/connectDB";
 import Product from "../../../../db/schema/productsSchema";
 
 export async function POST(req) {
-  const searchString = req.body;
+  const { searchString } = await req.json();
+  console.log(searchString);
   connectDB();
   const products = await Product.find({
     $text: {
@@ -10,5 +12,5 @@ export async function POST(req) {
       $caseSensitive: false,
     },
   }).lean();
-  return products;
+  return NextResponse.json(products, { status: 200 });
 }

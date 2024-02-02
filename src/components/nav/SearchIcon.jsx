@@ -24,48 +24,26 @@ export default function SearchBar() {
   const [isLoading, setLoading] = useState(false);
   // const [isPending, startTransition] = useTransition();
   const debouncedQuery = useDebounce(query);
+  console.log(open);
 
-  // const fetchData = async (debouncedQuery) => {
-  //   setLoading(true);
-  //   try {
-  //     const data = await filterProducts(debouncedQuery);
-  //     console.log(data);
-  //     setProducts(data);
-  //   } catch (err) {
-  //     console.error(err);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+  const fetchData = async (debouncedQuery) => {
+    setLoading(true);
+    try {
+      const data = await filterProducts(debouncedQuery);
+      console.log(data);
+      setProducts(data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
     if (query.length <= 0) {
       setProducts(null);
       return;
     }
-    setLoading(true);
-    try {
-      // filterProducts(debouncedQuery)
-      fetch("http://localhost:3000/api/search", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          searchString: debouncedQuery,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("The data from the api is", data);
-          console.log("updating the products correctly");
-          setProducts(data);
-        })
-        .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
-    } catch (err) {
-      console.error(err);
-    }
-    // fetchData(debouncedQuery);
+    fetchData(debouncedQuery);
   }, [debouncedQuery]);
 
   return (
@@ -87,7 +65,7 @@ export default function SearchBar() {
           placeholder="Type a command or search..."
         />
         <CommandList>
-          {isLoading || products?.length === 0 ? (
+          {isLoading ? (
             <div className="space-y-1 overflow-hidden px-1 py-2">
               <Skeleton className="h-4 w-10 rounded" />
               <Skeleton className="h-8 rounded-sm" />
