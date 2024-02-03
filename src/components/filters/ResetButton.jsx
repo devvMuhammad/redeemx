@@ -4,9 +4,5 @@ import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 
 export default function ResetButton() {
   const { resetSearchParams } = useQueryParamUpdate();
-  return (
-    <Button className="font-bold" onClick={resetSearchParams}>
-      Reset
-    </Button>
-  );
+  return <Button onClick={resetSearchParams}>Reset</Button>;
 }
