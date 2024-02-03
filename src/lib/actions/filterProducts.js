@@ -10,6 +10,8 @@ export default async function filterProducts(searchString) {
       $search: searchString,
       $caseSensitive: false,
     },
-  }).lean();
+  })
+    .select({ _id: 0 })
+    .lean();
   return products;
 }

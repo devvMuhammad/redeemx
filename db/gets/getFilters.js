@@ -1,9 +1,11 @@
+"use server";
 import { connectDB } from "../connectDB";
 import { cache } from "react";
 
 import Product from "../schema/productsSchema";
 
 export const getFilters = cache(async () => {
+  "use server";
   // connectDB();
   // data needed for filters: number of items of each category, maximum and minimum price
   // const response = await fetch("http://localhost:3000/api/filters");

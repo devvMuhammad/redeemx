@@ -2,13 +2,14 @@
 
 import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 import Checkbox from "../ui/CustomCheckbox";
-import React from "react";
+import React, { useTransition } from "react";
 import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 
 export default function BrandFilter({ titledCategory, brandsList }) {
   // console.log(brands);
   const { deleteSearchParams } = useQueryParamUpdate();
   const { brands } = useCustomSearchParams();
+  const [isPending, startTransition] = useTransition();
   return (
     <div className="space-y-2">
       <h1 className="font-bold text-left tracking-wide">Brand</h1>
@@ -20,7 +21,12 @@ export default function BrandFilter({ titledCategory, brandsList }) {
             checked={brands.includes(brand.name)}
             queryName="brand"
             queryValue={brand.name}
-            onClick={() => deleteSearchParams("page")}
+            onClick={() =>
+              startTransition(() => {
+                deleteSearchParams("page");
+              })
+            }
+            disabled={isPending}
           />
           <label
             htmlFor={brand.name}

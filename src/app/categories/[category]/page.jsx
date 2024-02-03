@@ -1,8 +1,6 @@
 import { toCamelCase, toTitleCase } from "@/lib/utils";
-import FiltersServer from "@/components/filters/FiltersServer";
 import categories from "@/components/nav/categories";
 import Products from "@/components/products/Products";
-import FiltersSkeleton from "@/components/ui/FiltersSkeletion";
 import ProductsSkeleton from "@/components/ui/ProductsSkeletion";
 import { Suspense } from "react";
 
@@ -18,18 +16,18 @@ export default async function Category({ params: { category }, searchParams }) {
   return (
     <>
       {/* FILTERS */}
-      <Suspense fallback={<FiltersSkeleton />}>
+      {/* <Suspense fallback={<FiltersSkeleton />}>
         <FiltersServer titledCategory={titledCategory} />
-      </Suspense>
+      </Suspense> */}
 
       {/* PRODUCTS */}
       <Suspense
-        key={[
-          searchParams.brand,
-          searchParams.price,
-          searchParams.sort,
-          searchParams.page,
-        ]}
+        // key={[
+        //   searchParams.brand,
+        //   searchParams.price,
+        //   searchParams.sort,
+        //   searchParams.page,
+        // ]}
         fallback={<ProductsSkeleton />}
       >
         <Products searchParams={searchParams} />

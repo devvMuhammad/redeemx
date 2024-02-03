@@ -41,7 +41,7 @@ export default function useQueryParamUpdate() {
         searchParams,
         special
       );
-      router.push(pathname + "?" + queryString);
+      router.push(pathname + "?" + queryString, { scroll: false });
     },
     [pathname, router, searchParams]
   );
@@ -49,13 +49,13 @@ export default function useQueryParamUpdate() {
   const deleteQueryParam = useCallback(
     (paramName) => {
       const queryString = deleteQueryString(paramName, searchParams);
-      router.push(pathname + "?" + queryString);
+      router.push(pathname + "?" + queryString, { scroll: false });
     },
     [pathname, router, searchParams]
   );
 
   const resetQueryParam = useCallback(() => {
-    router.push(pathname);
+    router.push(pathname, { scroll: false });
   }, [pathname, router, searchParams]);
 
   return {
