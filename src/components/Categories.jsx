@@ -14,7 +14,7 @@ export default function Categories() {
   ];
   return (
     <section className="space-y-8 px-6 lg:px-10 pb-2">
-      <h1 className="text-center lg:text-left text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
+      <h1 className="text-center lg:text-left text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
         Browse Categories
       </h1>
       {/* ------------- PICTURES ------------- */}
