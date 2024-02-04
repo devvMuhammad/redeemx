@@ -1,4 +1,4 @@
-import { addItem, deleteItem, removeItem } from "@/store/cart/cart";
+import { addItem, deleteItem, removeItem } from "@/store/cart";
 import { Trash2Icon } from "lucide-react";
 import { useDispatch } from "react-redux";
 

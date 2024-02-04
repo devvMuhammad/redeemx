@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { addItem } from "@/store/cart/cart";
+import { addItem } from "@/store/cart";
 import { useDispatch } from "react-redux";
 
 export default function AddToCart({
