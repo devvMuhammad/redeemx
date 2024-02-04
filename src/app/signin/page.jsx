@@ -15,15 +15,15 @@ export default function Component() {
         <h1 className="text-2xl font-bold">Sign in</h1>
         <p className="mt-2 mb-6">Choose your preferred sign in method</p>
         <div className="flex justify-between mb-6">
-          <Button className="flex-1 mr-2 bg-black hover:bg-black/50 border-2 border-gray-800  text-white">
+          <Button className="flex-1 mr-2 bg-black hover:bg-white/10 border-2 border-gray-800  text-white">
             <LucideChrome className="mr-2" />
             Google{"\n              "}
           </Button>
-          <Button className="flex-1 mx-2 bg-black hover:bg-black/50 border-2 border-gray-800  text-white">
+          <Button className="flex-1 mx-2 bg-black hover:bg-white/10 border-2 border-gray-800  text-white">
             <Facebook className="mr-2" />
             Facebook{"\n              "}
           </Button>
-          <Button className="flex-1 ml-2 bg-black hover:bg-black/50 border-2 border-gray-800  text-white">
+          <Button className="flex-1 ml-2 bg-black hover:bg-white/10 border-2 border-gray-800  text-white">
             <GithubIcon className="mr-2" />
             Github{"\n              "}
           </Button>
