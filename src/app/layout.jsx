@@ -13,10 +13,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ scrollBehavior: "smooth" }}>
+    <html lang="en">
       <body className={`${poppins.className} m-0 overflow-y-auto`}>
         <Providers>
-          <NavBar />
+          {/* <NavBar /> */}
           {children}
         </Providers>
       </body>

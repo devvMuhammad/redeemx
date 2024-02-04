@@ -8,9 +8,9 @@ export default function Home() {
       <HomePage />
       <Categories />
       <Featured />
-      <div>
+      {/* <div>
         <SearchBar2 />
-      </div>
+      </div> */}
     </main>
   );
 }
