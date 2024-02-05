@@ -8,7 +8,7 @@ export default function UserProfile() {
   const { data: session } = useSession();
   // signIn("github");
 
-  // console.log(session);
+  console.log(session);
   return session ? (
     <Button size="sm" onClick={signOut}>
       Sign Out
