@@ -8,7 +8,7 @@ import BrandFilter from "./BrandFilter";
 import ReviewsFilter from "./ReviewsFilter";
 import ResetButton from "./ResetButton";
 import { useEffect, useState, useTransition } from "react";
-import { getFilters } from "../../../db/gets/getFilters";
+import { getFilters } from "../../../db/queries/getFilters";
 import FiltersSkeleton from "../ui/FiltersSkeletion";
 
 function FiltersNew() {

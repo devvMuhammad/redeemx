@@ -1,7 +1,7 @@
 import ProductsFooter from "./ProductsFooter";
 import ProductsHeader from "./ProductsHeader";
 import ProductsMain from "./ProductsMain";
-import { getProducts } from "../../../db/gets/getProducts";
+import { getProducts } from "../../../db/queries/getProducts";
 
 export default async function Products({ searchParams }) {
   const { grid = 4, brand, sort, perPage, page, price } = searchParams;

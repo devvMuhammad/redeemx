@@ -13,7 +13,7 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 import useDebounce from "@/hooks/useDebounce";
-import filterProducts from "@/lib/actions/filterProducts";
+import filterProducts from "../../../db/queries/filterProducts";
 import { Skeleton } from "../ui/skeleton";
 import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
