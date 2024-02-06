@@ -29,7 +29,7 @@ export default function SigninForm() {
 
   return (
     <form className="mt-6" onSubmit={handleSubmit(submitHandler)}>
-      <label className="block text-sm font-medium" htmlFor="email">
+      <label className="text-sm font-medium" htmlFor="email">
         Email
       </label>
       <Input
@@ -39,7 +39,7 @@ export default function SigninForm() {
         placeholder="tumeraputtar@rmail.com"
         type="text"
       />
-      <label className="block text-sm font-medium" htmlFor="password">
+      <label className="text-sm font-medium" htmlFor="password">
         Password
       </label>
       <Input
