@@ -24,12 +24,16 @@ export default function SigninForm() {
   const { handleSubmit } = useForm({
     resolver: zodResolver(authSchema),
   });
+  //! CUSTOM AUTHENTICATION LOGIC (will be implemented later)
+  const submitHandler = (form) => {};
+
   return (
-    <form className="mt-6">
+    <form className="mt-6" onSubmit={handleSubmit(submitHandler)}>
       <label className="block text-sm font-medium" htmlFor="email">
         Email
       </label>
       <Input
+        {...register("email")}
         className="mt-2 mb-4 text-white border border-gray-600 bg-black placeholder:font-thin font-thin"
         id="email"
         placeholder="tumeraputtar@rmail.com"
@@ -39,6 +43,7 @@ export default function SigninForm() {
         Password
       </label>
       <Input
+        {...register("password")}
         className="mt-2 mb-6 text-white border border-gray-600 bg-black placeholder:font-thin"
         id="password"
         placeholder="****************"

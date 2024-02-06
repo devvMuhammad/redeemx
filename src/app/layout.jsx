@@ -1,12 +1,9 @@
-import NavBar from "@/components/nav/NavBar";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Providers from "@/store/Provider";
-// import { getServerSession } from "next-auth";
 import SessionProvider from "@/lib/SessionProvider";
 import { getServerSession } from "next-auth";
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
-// const inter = Inter({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -19,10 +16,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.className} m-0 overflow-y-auto`}>
         <Providers>
-          <SessionProvider session={session}>
-            {/* <NavBar /> */}
-            {children}
-          </SessionProvider>
+          <SessionProvider session={session}>{children}</SessionProvider>
         </Providers>
       </body>
     </html>
