@@ -4,6 +4,8 @@ import { Button } from "../ui/button";
 import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { signUp } from "../../../db/queries/signUp";
 
 const authSchema = z.object({
   name: z.string().min(6, "Name must be at least 6 characters"),
@@ -18,6 +20,7 @@ const authSchema = z.object({
 });
 
 export default function SignupForm() {
+  const [loading, setLoading] = useState(false);
   const {
     handleSubmit,
     register,
@@ -26,9 +29,16 @@ export default function SignupForm() {
     resolver: zodResolver(authSchema),
   });
 
-  const submitHandler = (formData) => {
-    console.log(formData);
-    // Add your custom authentication logic here
+  const submitHandler = async ({ name, email, password }) => {
+    setLoading(true);
+    try {
+      const { status, message } = await signUp(name, email, password);
+      console.log(status, message);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,6 +52,7 @@ export default function SignupForm() {
         id="name"
         placeholder="John Doe"
         type="text"
+        disabled={loading}
       />
       {errors.name && (
         <p className="text-xs mb-2 text-red-500">{errors.name.message}</p>
@@ -56,6 +67,7 @@ export default function SignupForm() {
         id="email"
         placeholder="john.doe@example.com"
         type="text"
+        disabled={loading}
       />
       {errors.email && (
         <p className="text-xs mb-2 text-red-500">{errors.email.message}</p>
@@ -70,12 +82,15 @@ export default function SignupForm() {
         id="password"
         placeholder="****************"
         type="password"
+        disabled={loading}
       />
       {errors.password && (
         <p className="text-xs mb-4 text-red-500">{errors.password.message}</p>
       )}
 
-      <Button className="mt-2 w-full">Sign up</Button>
+      <Button disabled={loading} className="mt-2 w-full">
+        {loading ? "Loading..." : "Sign up"}
+      </Button>
     </form>
   );
 }
