@@ -21,7 +21,7 @@ const authSchema = z.object({
 });
 
 export default function SigninForm() {
-  const { handleSubmit } = useForm({
+  const { handleSubmit, register } = useForm({
     resolver: zodResolver(authSchema),
   });
   //! CUSTOM AUTHENTICATION LOGIC (will be implemented later)
