@@ -6,21 +6,18 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const authSchema = z.object({
+  name: z.string().min(6, "Name must be at least 6 characters"),
   email: z.string().min(1, "Please enter a valid email address").email(),
   password: z
     .string()
     .min(1, "Please enter a password")
-    .refine(
-      (val) => val.length > 4, // /\d/.test(password) && // /[a-z]/.test(password) && // /[A-Z]/.test(val) &&
-      // /[!@#$%^&*(),.?":{}|<>]/.test(password),
-      {
-        message:
-          "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.",
-      }
-    ),
+    .refine((val) => val.length > 4, {
+      message:
+        "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.",
+    }),
 });
 
-export default function SigninForm() {
+export default function SignupForm() {
   const {
     handleSubmit,
     register,
@@ -28,13 +25,28 @@ export default function SigninForm() {
   } = useForm({
     resolver: zodResolver(authSchema),
   });
-  //! CUSTOM AUTHENTICATION LOGIC (will be implemented later)
+
   const submitHandler = (formData) => {
     console.log(formData);
+    // Add your custom authentication logic here
   };
 
   return (
     <form className="mt-6" onSubmit={handleSubmit(submitHandler)}>
+      <label className="text-sm font-medium" htmlFor="name">
+        Name
+      </label>
+      <Input
+        {...register("name")}
+        className="mt-2 mb-2 text-white border border-gray-600 bg-black placeholder:font-thin font-thin"
+        id="name"
+        placeholder="John Doe"
+        type="text"
+      />
+      {errors.name && (
+        <p className="text-xs mb-2 text-red-500">{errors.name.message}</p>
+      )}
+
       <label className="text-sm font-medium" htmlFor="email">
         Email
       </label>
@@ -42,12 +54,13 @@ export default function SigninForm() {
         {...register("email")}
         className="mt-2 mb-2 text-white border border-gray-600 bg-black placeholder:font-thin font-thin"
         id="email"
-        placeholder="tumeraputtar@rmail.com"
+        placeholder="john.doe@example.com"
         type="text"
       />
       {errors.email && (
         <p className="text-xs mb-2 text-red-500">{errors.email.message}</p>
       )}
+
       <label className="text-sm font-medium" htmlFor="password">
         Password
       </label>
@@ -61,7 +74,8 @@ export default function SigninForm() {
       {errors.password && (
         <p className="text-xs mb-4 text-red-500">{errors.password.message}</p>
       )}
-      <Button className="mt-2 w-full">Sign in</Button>
+
+      <Button className="mt-2 w-full">Sign up</Button>
     </form>
   );
 }
