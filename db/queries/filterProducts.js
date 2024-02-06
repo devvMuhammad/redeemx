@@ -1,7 +1,7 @@
 "use server";
 
-import { connectDB } from "../../../db/connectDB";
-import Product from "../../../db/schema/productsSchema";
+import { connectDB } from "../connectDB";
+import Product from "../schema/productsSchema";
 
 export default async function filterProducts(searchString) {
   connectDB();
