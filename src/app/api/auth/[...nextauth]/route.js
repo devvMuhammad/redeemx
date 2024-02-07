@@ -3,9 +3,11 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../../../../db/schema/usersSchema";
 import { generateCustomerID } from "@/lib/utils";
 import { connectDB } from "../../../../../db/connectDB";
+import { customSignIn } from "../../../../../db/queries/signIn";
 
 export const authOptions = {
   providers: [
@@ -16,6 +18,30 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        email: {
+          label: "email",
+          type: "text",
+        },
+        password: {
+          label: "password",
+          type: "password",
+        },
+      },
+      async authorize(credentials) {
+        const { email: inputEmail, password: inputPassword } = credentials;
+        // using our ready-made custom sign in function
+        const { status, email, name, customerId, message } = await customSignIn(
+          inputEmail,
+          inputPassword
+        );
+        if (status === "failure") throw new Error(message);
+        // error, a work-around so we return an error as well as an object, cuz throwing an object is taken as success by next-auth
+        else return { email, name, customerId }; // success
+      },
     }),
   ],
   // call,
