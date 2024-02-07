@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { customSignIn } from "../../../db/queries/signIn";
+import { signIn } from "next-auth/react";
+import { redirect, useRouter } from "next/navigation";
 
 const authSchema = z.object({
   email: z.string().min(1, "Please enter a valid email address").email(),
@@ -28,19 +30,47 @@ export default function SigninForm() {
     handleSubmit,
     register,
     formState: { errors },
+    setError,
   } = useForm({
     resolver: zodResolver(authSchema),
   });
   //! CUSTOM AUTHENTICATION LOGIC (will be implemented later)
+  //! CUSTOM AUTHENTICATION WITHOUT NEXT-AUTH
+  // const submitHandler = async ({ email: inputEmail, password }) => {
+  //   // console.log(formData);
+  //   setLoading(true);
+  //   try {
+  //     const { status, email, name, customerId, message } = await customSignIn(
+  //       inputEmail,
+  //       password
+  //     );
+  //     console.log(status, email, name, customerId);
+  //     if (message) throw new Error(message);
+  //   } catch (err) {
+  //     console.log(err.message);
+  //     setError("loginError", { type: "manual", message: err.message });
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  //! CUSTOM AUTHENTICATION USING NEXT-AUTH
+  const router = useRouter();
   const submitHandler = async ({ email: inputEmail, password }) => {
-    // console.log(formData);
     setLoading(true);
     try {
-      const { status, email, name, customerId } = await customSignIn(
-        inputEmail,
-        password
-      );
-      console.log(status, email, name, customerId);
+      const response = await signIn("credentials", {
+        email: inputEmail,
+        password,
+        redirect: false,
+      });
+      // inspect the response object of next-auth sign in incase of any confusion
+      console.log(response);
+      if (response.ok) router.push("/");
+      // the error we returned is in the response.error
+      setError("loginError", {
+        type: "manual",
+        message: response.error,
+      });
     } catch (err) {
       console.log(err.message);
     } finally {
@@ -77,6 +107,9 @@ export default function SigninForm() {
       />
       {errors.password && (
         <p className="text-xs mb-4 text-red-500">{errors.password.message}</p>
+      )}
+      {errors.loginError && (
+        <p className="text-xs mb-4 text-red-500">{errors.loginError.message}</p>
       )}
       <Button disabled={loading} className="mt-2 w-full">
         {loading ? "Loading..." : "Sign in"}
