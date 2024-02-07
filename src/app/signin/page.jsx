@@ -28,7 +28,7 @@ export default function Component() {
             </span>
           </Link>
           <Link className="font-bold hover:underline" href="#">
-            Reset password
+            Forgot Password?
           </Link>
         </div>
       </div>
