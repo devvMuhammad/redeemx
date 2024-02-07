@@ -7,9 +7,12 @@ export async function customSignIn(inputEmail, password) {
   await connectDB();
   try {
     const existingUser = await User.findOne({ email: inputEmail });
-    if (!existingUser) throw new Error("User with this email does not exist.");
+    if (!existingUser) throw new Error("User with this email does not exist");
 
     const { password: hashedPassword, name, email, id } = existingUser;
+
+    if (!hashedPassword)
+      throw new Error("User is registered with another provider");
 
     const isCorrect = await bcrypt.compare(password, hashedPassword);
     if (!isCorrect) throw new Error("The password you entered is incorrect");
