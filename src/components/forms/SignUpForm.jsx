@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { signUp } from "../../../db/queries/signUp";
+import { useToast } from "../ui/use-toast";
 
 const authSchema = z.object({
   name: z.string().min(6, "Name must be at least 6 characters"),
@@ -21,10 +22,12 @@ const authSchema = z.object({
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
   const {
     handleSubmit,
     register,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(authSchema),
   });
@@ -33,9 +36,18 @@ export default function SignupForm() {
     setLoading(true);
     try {
       const { status, message } = await signUp(name, email, password);
-      console.log(status, message);
+      // if (status === "success")
+      // else
+      // in case of any error
+      if (status === "failure") throw new Error(message);
+      toast({
+        title: "Registered Successfully!",
+        description: "Sign In to start shopping!",
+      });
+      reset();
     } catch (err) {
-      console.log(err.message);
+      // console.log(err.message);
+      toast({ variant: "destructive", description: err.message });
     } finally {
       setLoading(false);
     }
