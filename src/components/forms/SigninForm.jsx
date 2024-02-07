@@ -4,6 +4,8 @@ import { Button } from "../ui/button";
 import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { customSignIn } from "../../../db/queries/signIn";
 
 const authSchema = z.object({
   email: z.string().min(1, "Please enter a valid email address").email(),
@@ -11,7 +13,7 @@ const authSchema = z.object({
     .string()
     .min(1, "Please enter a password")
     .refine(
-      (val) => val.length > 4, // /\d/.test(password) && // /[a-z]/.test(password) && // /[A-Z]/.test(val) &&
+      (val) => val.length > 3, // /\d/.test(password) && // /[a-z]/.test(password) && // /[A-Z]/.test(val) &&
       // /[!@#$%^&*(),.?":{}|<>]/.test(password),
       {
         message:
@@ -21,6 +23,7 @@ const authSchema = z.object({
 });
 
 export default function SigninForm() {
+  const [loading, setLoading] = useState(false);
   const {
     handleSubmit,
     register,
@@ -29,8 +32,20 @@ export default function SigninForm() {
     resolver: zodResolver(authSchema),
   });
   //! CUSTOM AUTHENTICATION LOGIC (will be implemented later)
-  const submitHandler = (formData) => {
-    console.log(formData);
+  const submitHandler = async ({ email: inputEmail, password }) => {
+    // console.log(formData);
+    setLoading(true);
+    try {
+      const { status, email, name, customerId } = await customSignIn(
+        inputEmail,
+        password
+      );
+      console.log(status, email, name, customerId);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -39,6 +54,7 @@ export default function SigninForm() {
         Email
       </label>
       <Input
+        disabled={loading}
         {...register("email")}
         className="mt-2 mb-2 text-white border border-gray-600 bg-black placeholder:font-thin font-thin"
         id="email"
@@ -52,6 +68,7 @@ export default function SigninForm() {
         Password
       </label>
       <Input
+        disabled={loading}
         {...register("password")}
         className="mt-2 mb-2 text-white border border-gray-600 bg-black placeholder:font-thin"
         id="password"
@@ -61,7 +78,9 @@ export default function SigninForm() {
       {errors.password && (
         <p className="text-xs mb-4 text-red-500">{errors.password.message}</p>
       )}
-      <Button className="mt-2 w-full">Sign in</Button>
+      <Button disabled={loading} className="mt-2 w-full">
+        {loading ? "Loading..." : "Sign in"}
+      </Button>
     </form>
   );
 }
