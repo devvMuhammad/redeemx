@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import Providers from "@/store/Provider";
 import SessionProvider from "@/lib/SessionProvider";
 import { getServerSession } from "next-auth";
+import { Toaster } from "@/components/ui/toaster";
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default async function RootLayout({ children }) {
       <body className={`${poppins.className} m-0 overflow-y-auto`}>
         <Providers>
           <SessionProvider session={session}>{children}</SessionProvider>
+          <Toaster />
         </Providers>
       </body>
     </html>
