@@ -3,10 +3,11 @@ import ProductsHeader from "./ProductsHeader";
 import ProductsMain from "./ProductsMain";
 import { getProducts } from "../../../db/queries/getProducts";
 
-export default async function Products({ searchParams }) {
+export default async function Products({ searchParams, category }) {
   const { grid = 4, brand, sort, perPage, page, price } = searchParams;
 
   const { products, total, length } = await getProducts({
+    category,
     brand,
     sort,
     page,
