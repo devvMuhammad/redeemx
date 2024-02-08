@@ -1,11 +1,16 @@
 import mongoose, { Schema } from "mongoose";
 
 const productsSchema = new Schema({
-  name: String,
-  price: mongoose.Decimal128,
-  discount: mongoose.Decimal128,
-  imageUrl: String,
-  brand: String,
+  category: String,
+  products: [
+    {
+      name: String,
+      price: mongoose.Decimal128,
+      discount: mongoose.Decimal128,
+      imageUrl: String,
+      brand: String,
+    },
+  ],
 });
 
 const Product =
