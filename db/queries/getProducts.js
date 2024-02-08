@@ -24,7 +24,7 @@ export const getProducts = cache(
     let [{ products, total }] = await Product.aggregate([
       // {$match:},
       {
-        $match: { category, ...matchQuery },
+        $match: { category },
       },
       {
         $unwind: {
@@ -39,6 +39,7 @@ export const getProducts = cache(
       {
         $facet: {
           products: [
+            { $match: { ...matchQuery } }, // price and brand filter apply here
             { $sort: { [sortField]: +value } },
             { $skip: perPageItems * (pageNumber - 1) },
             { $limit: perPageItems },
