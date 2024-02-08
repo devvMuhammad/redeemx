@@ -4,12 +4,18 @@ import { cache } from "react";
 
 import Product from "../schema/productsSchema";
 
-export const getFilters = cache(async () => {
+export const getFilters = cache(async (category) => {
   // "use server";
   connectDB();
   // data needed for filters: number of items of each category, maximum and minimum price
-  // const response = await fetch("http://localhost:3000/api/filters");
   const brands = await Product.aggregate([
+    { $match: { category } },
+    { $unwind: { path: "$products" } },
+    {
+      $replaceRoot: {
+        newRoot: "$products",
+      },
+    },
     {
       $group: {
         _id: "$brand",
