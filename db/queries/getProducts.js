@@ -4,10 +4,10 @@ import { cache } from "react";
 import Product from "../schema/productsSchema";
 
 export const getProducts = cache(
-  async ({ brand, sort, perPage, page, price }) => {
+  async ({ category, brand, sort, perPage, page, price }) => {
     // brand = Apple.Dell.HP
     connectDB();
-
+    console.log("This is the category", category);
     const brandFilter = brand && {
       brand: { $in: brand.split(".") || [brand] },
     };
@@ -20,9 +20,21 @@ export const getProducts = cache(
     const pageNumber = +page || 1;
     const perPageItems = +perPage || 10;
 
+    // let [{ products, total }] = await Product.aggregate([
     let [{ products, total }] = await Product.aggregate([
+      // {$match:},
       {
-        $match: matchQuery,
+        $match: { category, ...matchQuery },
+      },
+      {
+        $unwind: {
+          path: "$products",
+        },
+      },
+      {
+        $replaceRoot: {
+          newRoot: "$products",
+        },
       },
       {
         $facet: {
@@ -38,7 +50,7 @@ export const getProducts = cache(
         $addFields: { total: { $arrayElemAt: ["$total.total", 0] } },
       },
     ]);
-
+    console.log("this is the result of the aggregation query");
     return { products, total, length: products.length };
   }
 );
