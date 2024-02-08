@@ -19,8 +19,11 @@ function FiltersNew() {
   const [isPending, startTransition] = useTransition();
   useEffect(() => {
     startTransition(() => {
-      getFilters()
-        .then((brands) => setBrands(brands))
+      getFilters(category)
+        .then((brands) => {
+          console.log(brands);
+          setBrands(brands);
+        })
         .catch((err) => console.error(err));
     });
   }, []);

@@ -9,6 +9,6 @@ export async function generateStaticParams() {
 }
 
 export default async function Category({ params: { category }, searchParams }) {
-  const titledCategory = toTitleCase(category);
+  // const titledCategory = toTitleCase(category);
   return <Products searchParams={searchParams} category={category} />;
 }
