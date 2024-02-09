@@ -36,10 +36,10 @@ export const getProducts = cache(
           newRoot: "$products",
         },
       },
+      { $match: { ...matchQuery } }, // price and brand filter apply here
       {
         $facet: {
           products: [
-            { $match: { ...matchQuery } }, // price and brand filter apply here
             { $sort: { [sortField]: +value } },
             { $skip: perPageItems * (pageNumber - 1) },
             { $limit: perPageItems },
@@ -51,6 +51,7 @@ export const getProducts = cache(
         $addFields: { total: { $arrayElemAt: ["$total.total", 0] } },
       },
     ]);
+    console.log(total, products.length);
     return { products, total, length: products.length };
   }
 );
