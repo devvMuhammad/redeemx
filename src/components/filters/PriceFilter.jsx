@@ -6,19 +6,21 @@ import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 import useQueryParamUpdate from "@/hooks/useQueryParamUpdate";
 import { useState, useTransition } from "react";
 
-export function PriceFilter() {
+export function PriceFilter({ maximumPrice }) {
   const { updateSearchParams } = useQueryParamUpdate();
   const { price } = useCustomSearchParams();
-  const [priceRange, setPriceRange] = useState([price[0], price[1]]);
+  const [priceRange, setPriceRange] = useState([
+    price ? price[0] : 0,
+    price ? price[1] : maximumPrice,
+  ]);
   const [isPending, startTransition] = useTransition();
-
   return (
     <div className="space-y-4">
       <h1 className="font-bold text-left tracking-wide">Price Range</h1>
 
       {/* PriceRange component code */}
       <Slider
-        max={10000}
+        max={maximumPrice}
         step={100}
         value={priceRange}
         onValueChange={(value) => setPriceRange(value)}

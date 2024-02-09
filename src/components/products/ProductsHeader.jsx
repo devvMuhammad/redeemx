@@ -3,7 +3,7 @@ import SortSelect from "./SortSelect";
 import ShowItems from "./ShowItems";
 import FiltersNew from "../filters/FiltersNew";
 
-export default async function ProductsHeader({ length, total }) {
+export default async function ProductsHeader({ length, total, category }) {
   // memoized request
   // const brands = await getFilters();
   return (
@@ -11,7 +11,7 @@ export default async function ProductsHeader({ length, total }) {
       {/* <ShowItems /> */}
       {/* CREATING A BRAND NEW FILTERS CLIENT COMPONENT AND THEN I'LL REMOVE THE EXSITING ONES */}
       <div className="flex gap-3 items-center">
-        <FiltersNew />
+        <FiltersNew category={category} />
         <ShowItems length={length} total={total} />
       </div>
       <div className="flex gap-2 items-center justify-between w-full md:w-auto">

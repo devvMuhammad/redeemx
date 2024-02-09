@@ -16,7 +16,7 @@ export default async function Products({ searchParams, category }) {
   });
   return (
     <div className="flex flex-col bg-sy-500">
-      <ProductsHeader length={length} total={total} />
+      <ProductsHeader length={length} total={total} category={category} />
       {length ? (
         <ProductsMain grid={grid} products={products} />
       ) : (
