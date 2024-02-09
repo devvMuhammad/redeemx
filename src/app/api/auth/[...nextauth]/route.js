@@ -4,10 +4,10 @@ import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import User from "../../../../../../db/schema/usersSchema";
+import User from "../../../../../db/schema/usersSchema";
 import { generateCustomerID } from "@/lib/utils";
-import { connectDB } from "../../../../../../db/connectDB";
-import { customSignIn } from "../../../../../../db/queries/signIn";
+import { connectDB } from "../../../../../db/connectDB";
+import { customSignIn } from "../../../../../db/queries/signIn";
 
 export const authOptions = {
   providers: [
@@ -18,6 +18,9 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+      httpOptions: {
+        timeout: 6000,
+      },
     }),
     CredentialsProvider({
       name: "credentials",
