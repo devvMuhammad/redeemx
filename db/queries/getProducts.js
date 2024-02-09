@@ -51,7 +51,6 @@ export const getProducts = cache(
         $addFields: { total: { $arrayElemAt: ["$total.total", 0] } },
       },
     ]);
-    console.log("this is the result of the aggregation query");
     return { products, total, length: products.length };
   }
 );
