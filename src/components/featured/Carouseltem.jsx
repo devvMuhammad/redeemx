@@ -8,13 +8,13 @@ import { Button } from "@/components/ui/button";
 
 export default function CarouselItem(props) {
   return (
-    <Card className="mx-2 border-2 bg-black text-white">
+    <Card className="mx-2 border bg-black text-white">
       <CardHeader>
         <div className="h-[200px] bg-white"></div>
       </CardHeader>
       <CardContent className="space-y-4 text-lg">
         {/* Link in future */}
-        <h2 className="lg:text-xl font-extrabold h-[120px]">{props.name}</h2>
+        <h2 className="lg:text-xl h-[120px]">{props.name}</h2>
         {/* PRICES */}
         <div className="w-full flex gap-3">
           <span className="font-semibold text-xl tracking-wider mr-6">
