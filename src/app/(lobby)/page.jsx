@@ -2,6 +2,7 @@ import HomePage from "@/components/HomePage";
 import Categories from "@/components/Categories";
 import Featured from "@/components/featured/Featured";
 import SearchBar2 from "@/components/nav/SearchIcon2";
+import WhatWeOffer from "@/components/WhatWeOffer";
 export default function Home() {
   return (
     <main className="grid gap-20">
@@ -11,6 +12,7 @@ export default function Home() {
       {/* <div>
         <SearchBar2 />
       </div> */}
+      <WhatWeOffer />
     </main>
   );
 }
