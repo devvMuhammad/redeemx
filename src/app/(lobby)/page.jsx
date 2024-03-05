@@ -8,12 +8,12 @@ export default function Home() {
   return (
     <main className="grid gap-20">
       <HomePage />
+      <WhatWeOffer />
       <Categories />
       <Featured />
       {/* <div>
         <SearchBar2 />
       </div> */}
-      <WhatWeOffer />
       <Footer />
     </main>
   );
