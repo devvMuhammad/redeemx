@@ -56,7 +56,7 @@ export default function useQueryParamUpdate() {
 
   const resetQueryParam = useCallback(() => {
     router.push(pathname, { scroll: false });
-  }, [pathname, router, searchParams]);
+  }, [pathname, router]);
 
   return {
     searchParams,

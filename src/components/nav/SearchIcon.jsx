@@ -76,7 +76,7 @@ export default function SearchBar() {
               {products?.map((product) => {
                 console.log("yo");
                 return (
-                  <CommandItem>
+                  <CommandItem key={product.name}>
                     <span>{product.name}</span>
                   </CommandItem>
                 );

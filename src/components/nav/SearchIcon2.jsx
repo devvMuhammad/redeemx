@@ -66,7 +66,7 @@ export default function SearchBar2() {
               console.log("yo");
               return (
                 // <CommandItem>
-                <span>{product.name}</span>
+                <span key={product.name}>{product.name}</span>
                 // </CommandItem>
               );
             })}

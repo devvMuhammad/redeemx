@@ -11,7 +11,7 @@ export default function Component() {
           </h1>
           <p className="max-w-[600px] font-thin text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
             This page does not exist. If you are looking for the brand page,
-            then I'm yet to make it. I'm just too busy :(
+            then I&apos;m yet to make it. I&apos;m just too busy :(
           </p>
         </div>
         <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">

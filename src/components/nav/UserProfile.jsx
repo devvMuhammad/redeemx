@@ -38,6 +38,7 @@ export default function UserProfile() {
               <div>
                 {session.user.image ? (
                   <Image
+                    alt="PF Pic"
                     className="rounded-full"
                     width={40}
                     height={32}

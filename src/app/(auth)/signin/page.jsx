@@ -22,7 +22,7 @@ export default function Component() {
         <SigninForm />
         <div className="mt-6 flex justify-between text-sm">
           <Link href="/signup" className="text-gray-500 font-thin">
-            Don't have an account?{" "}
+            Don&apos;t have an account?
             <span className="text-white font-bold hover:underline">
               Sign up
             </span>
