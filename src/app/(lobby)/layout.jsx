@@ -1,4 +1,5 @@
 import NavBar from "@/components/nav/NavBar";
+import Section from "@/lib/Section";
 // import "./globals.css";
 // import { Poppins } from "next/font/google";
 // import Providers from "@/store/Provider";
@@ -16,7 +17,11 @@ export default function RootLayout({ children }) {
     // <main className={`${poppins.className} m-0 overflow-y-auto`}>
     <main>
       <NavBar />
-      {children}
+      {/* {children} */}
+      <section className="grid mt-8">
+        {/* <Section className="grid lg:grid-cols-[15rem_1fr] h-scren "> */}
+        <Section>{children}</Section>
+      </section>
     </main>
   );
 }
