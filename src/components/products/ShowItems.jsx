@@ -8,8 +8,8 @@ function ShowItems({ length, total }) {
   return (
     <p className="hidden md:block text-lg">
       Showing <strong>{start}</strong>-
-      <strong>{end > total ? total : end}</strong> of <strong>{total}</strong>{" "}
-      Items
+      <strong>{end > total ? total : end}</strong> of{" "}
+      <strong>{total || 0}</strong> Items
     </p>
   );
 }
