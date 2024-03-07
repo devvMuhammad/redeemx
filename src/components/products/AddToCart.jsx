@@ -4,13 +4,13 @@ import { addItem } from "@/store/cart";
 import { useDispatch } from "react-redux";
 
 export default function AddToCart({
-  product: { name, price, discount, brand },
+  product: { id, name, price, discount, brand },
 }) {
   const dispatch = useDispatch();
   return (
     <Button
       onClick={() => {
-        dispatch(addItem({ name, price, discount, id: name, brand }));
+        dispatch(addItem({ id, name, price, discount, brand }));
       }}
       className="font-bold tracking-wide"
       size="sm"

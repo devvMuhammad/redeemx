@@ -27,7 +27,10 @@ export default function NavMenu() {
                   <span key={`${index}-${link}`}>
                     <Link
                       key={link}
-                      href={`/${link.toLowerCase().split(" ").join("-")}`}
+                      href={`/brand/${nav.brandLink}_${link
+                        .toLowerCase()
+                        .split(" ")
+                        .join("-")}`}
                       className="hover:underline text-white"
                     >
                       {link}

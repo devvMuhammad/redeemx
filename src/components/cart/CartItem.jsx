@@ -17,7 +17,7 @@ export default function CartItem({
         <div className="flex justify-between  w-full mt-4">
           <div className="flex gap-2 text-sm">
             <p className="text-gray-500">ID:</p>
-            <p className="font-bold">#42A182</p>
+            <p className="font-bold">#{id}</p>
           </div>
           <div className="flex gap-2 text-sm">
             <p className="text-gray-500">Brand:</p>

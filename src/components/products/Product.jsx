@@ -1,9 +1,10 @@
 import AddToCart from "./AddToCart";
 
 export default function Product({
-  product: { name, discount, price, brand },
+  product: { id, name, discount, price, brand },
   grid,
 }) {
+  console.log(id);
   return (
     <div
       key={name}
@@ -27,7 +28,7 @@ export default function Product({
         </div>
 
         {/* Agar variant huwa to add kardena */}
-        <AddToCart product={{ name, discount, price, brand }} />
+        <AddToCart product={{ id, name, discount, price, brand }} />
       </div>
     </div>
   );

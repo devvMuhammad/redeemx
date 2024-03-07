@@ -1,11 +1,13 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/LyUGrRkzk65
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  weight: ["400", "700"],
+  style: "normal",
+});
+
 export default function WhatWeOffer() {
   return (
-    <section className="w-full bg-black text-white">
+    <section className={` ${inter.className} w-full bg-black text-white`}>
       <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
         <div className="space-y-3">
           <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-7xl">
