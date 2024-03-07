@@ -15,7 +15,9 @@ export default async function RootLayout({ children }) {
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body className={`${poppins.className} m-0 overflow-y-auto`}>
+      <body
+        className={`${poppins.className} m-0 overflow-y-auto overflow-x-hidden`}
+      >
         <Providers>
           <SessionProvider session={session}>{children}</SessionProvider>
           <Toaster />
